@@ -9,3 +9,38 @@
 .feedbacks .section-title {
   margin-bottom: 24px;
 }
+
+.swiper-feedbacks {
+  width: 100%;
+  height: 394px;
+}
+
+/* .swiper-slide-feedbacks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.feedbacks-text {
+  margin-bottom: 24px;
+}
+
+.swiper-wrapper-feedbacks {
+  padding: 32px;
+  border: 1px solid #0b050026;
+  border-radius: 16px;
+}
+
+.swiper-pagination-bullet-feedbacks {
+  background: var(--color-black);
+  width: 8px;
+  height: 8px;
+  opacity: 0.2;
+  transition: 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+  background: #ff4747; /* колір активної */
+  opacity: 1;
+  transform: scale(1.3); /* збільшуємо активну */
+}

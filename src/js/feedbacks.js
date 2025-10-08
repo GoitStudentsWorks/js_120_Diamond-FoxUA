@@ -9,6 +9,7 @@ const swiper = new Swiper(".swiper-feedbacks", {
   slidesPerView: 1,        // кількість слайдів на екрані
   spaceBetween: 24,        // відстань між ними
   loop: false,              // безкінечний цикл
+  direction: "horizontal",
   pagination: {
     el: ".swiper-pagination-feedbacks",
     clickable: true
