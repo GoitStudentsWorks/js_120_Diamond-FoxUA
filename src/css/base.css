@@ -1,19 +1,33 @@
 :root {
-  /* font-family: Inter, Avenir, Helvetica, Arial, sans-serif; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 16px;
+  font-family: "Rubik", sans-serif;;
+  font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
+  
+  color: var(--color-black);
+  background-color: var(--background-color);
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
-
+  /* base colors: */
+  --color-black: #0b0500;
+  --color-white: #fff;
+  --background-color: #fceee6;
+  --color-orange-btn: #e15d05;
+  --color-hover-btn: #b44a04;
+  --color-transparentDark-btn: #dad9d8;
+  --color-disabled-btn: #e15d0533;
+  --color-brown-active-btn: #5a2502;
+  --color-orange-footer: #ea8d50;
+  --color-error-message: #ad0000;
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -22,11 +36,4 @@ body {
   min-width: 100vw;
   min-height: 100vh;
   margin: 0;
-}
-
-main {
-  flex-grow: 1;
-}
-main:has(.back-link) {
-  text-align: center;
 }
