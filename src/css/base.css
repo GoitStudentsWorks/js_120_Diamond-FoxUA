@@ -1,4 +1,5 @@
 :root {
+  /* base font-size (paragraphs) */
   font-family: 'Rubik', sans-serif;
   font-size: 18px;
   line-height: 1.5;
@@ -56,4 +57,10 @@ body {
 
   line-height: 120%;
   letter-spacing: -0.01em;
+}
+
+@media only screen and (min-width: 1440px) {
+  .section-title {
+    font-size: 48px;
+  }
 }
