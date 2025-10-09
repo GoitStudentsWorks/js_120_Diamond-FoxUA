@@ -14,8 +14,8 @@ function openModal(eventName) {
   const modalMarkup = `
     <div class="modal">
       <button type="button" class="modal-close" aria-label="Close modal">
-        <svg width="24" height="24">
-         <use href="/src/img/icons.svg#close"></use>
+        <svg width="16" height="16">
+         <use href="/src/img/icons.svg#icon-close"></use>
         </svg>
       </button>
       <h2 class="modal-title">Register</h2>
@@ -45,6 +45,9 @@ function openModal(eventName) {
   const closeBtn = backdrop.querySelector(".modal-close");
   const form = backdrop.querySelector("#register-form");
 
+  form.querySelectorAll('.error-text').forEach(el => el.remove());
+  form.querySelectorAll('input, textarea').forEach(el => el.classList.remove('error'));
+
   closeBtn.addEventListener("click", closeModal);
   backdrop.addEventListener("click", onBackdropClick);
   window.addEventListener("keydown", onEscKey);
@@ -72,17 +75,30 @@ function onFormSubmit(e) {
   e.preventDefault();
 
   const form = e.target;
-  const name = form.elements.name.value.trim();
-  const email = form.elements.email.value.trim();
+  const nameInput = form.elements.name;
+  const emailInput = form.elements.email;
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
 
-  if (!name || !email) {
-    iziToast.warning({
-      message: "Please fill in all required fields!",
-      position: "topRight",
-      timeout: 2500,
-    });
-    return;
+  form.querySelectorAll('.error-text').forEach(el => el.remove());
+  form.querySelectorAll('input, textarea').forEach(el => el.classList.remove('error'));
+
+  let hasError = false;
+
+  if (!name) {
+    showError(nameInput, 'Error text');
+    hasError = true;
   }
+
+  if (!email) {
+    showError(emailInput, 'Error text');
+    hasError = true;
+  } else if (!isValidEmail(email)) {
+    showError(emailInput, 'Invalid email');
+    hasError = true;
+  }
+
+  if (hasError) return;
 
   iziToast.success({
     message: "Registration successful!",
@@ -91,4 +107,17 @@ function onFormSubmit(e) {
   });
 
   closeModal();
+}
+
+function showError(input, message) {
+  input.classList.add('error');
+  input.placeholder = message;
+  const errorEl = document.createElement('p');
+  errorEl.classList.add('error-text');
+  errorEl.textContent = message;
+  input.insertAdjacentElement('afterend', errorEl);
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
