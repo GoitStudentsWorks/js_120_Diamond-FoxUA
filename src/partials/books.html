@@ -1,5 +1,33 @@
 <section class="books" id="books">
   <div class="container">
-    
+    <h2 class="visually-hidden">Trending books</h2>
+    <div class="books-header">
+      <div class="books-info-top">
+        <h3 class="books-subtitle">Books</h3>
+        <span class="books-showing-count" id="books-showing-count"
+          >Showing 0 of 0</span
+        >
+      </div>
+      <div class="a">
+        <button
+          class="books-section-categories-btn"
+          id="books-section-categories-btn"
+        >
+          Categories
+        </button>
+        <div class="books-section-categories">
+          <ul
+            class="books-section-categories-menu"
+            id="books-section-categories-menu"
+          ></ul>
+        </div>
+      </div>
+    </div>
+
+    <ul class="js-books-list books-list"></ul>
+
+    <div class="button-container">
+      <button class="js-load-more load-more-hidden">Load more</button>
+    </div>
   </div>
 </section>
