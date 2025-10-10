@@ -7,14 +7,16 @@
   margin-bottom: 24px;
 }
 
-.books-showing-count {
+.books-showing-count,
+.books-text {
   font-size: 14px;
 }
 
 .books-categories {
-  display: block;
   max-width: 343px;
   width: 100%;
+  position: relative;
+  /* width: fit-content; */
 }
 
 .books-info-top {
@@ -22,10 +24,6 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
-}
-
-.books-categories {
-  position: relative;
 }
 
 .books-categories-btn,
@@ -111,9 +109,7 @@
   background-color: rgba(11, 5, 0, 0.05);
 } */
 
-/* Скролбар */
 .books-categories-list::-webkit-scrollbar {
-  /* Скролбар тепер на ul */
   width: 3px;
   height: 280px;
 }
@@ -179,13 +175,12 @@
   overflow: hidden;
 }
 
-.books-price {
+.books-price-text {
   font-size: 20px;
   font-weight: 600;
 }
 
 .learn-more-btn {
-  display: inline-block;
   height: 40px;
   padding: 8px 20px;
   background: transparent;
@@ -193,6 +188,7 @@
   border-radius: 4px;
   color: var(--color-black);
   font-weight: 400;
+  font-size: 16px;
   line-height: 1.5;
   display: flex;
   align-items: center;
@@ -229,16 +225,11 @@
 
   .books-info-top {
     margin-bottom: 0;
+    width: 100%;
   }
 
   .books-categories {
     max-width: 249px;
-    margin-left: auto;
-  }
-
-  .books-categories {
-    position: relative;
-    /* margin-bottom: 0; */
   }
 
   .books-list {

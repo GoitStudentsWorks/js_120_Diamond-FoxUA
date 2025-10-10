@@ -1,4 +1,6 @@
 import axios from 'axios';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 const BASE_URL = 'https://books-backend.p.goit.global';
 const CATEGORY_LIST = '/books/category-list';
@@ -115,10 +117,10 @@ function createMarkupBooks(arr) {
             <div class="books-info">
                 <div class="books-info-left">
                    <h4 class="books-h section-subtitle">${title}</h4>
-                   <p>${author}</p>
+                   <p class="books-text">${author}</p>
                    
                 </div>
-                <p>$${price}</p>
+                <p class="books-price-text">$${price}</p>
             </div>
             <button class="learn-more-btn" type="button" data-book-modal-open data-book-id="${_id}">Learn more</button>
         </li>
@@ -140,8 +142,6 @@ function renderCategories() {
 
 async function renderBooks() {
   refs.booksContainer.innerHTML = '';
-  refs.showMoreBtn.classList.add('show-more-hidden');
-  refs.showMoreBtn.removeEventListener('click', onShowMore);
 
   if (activeCategory === 'All categories') {
     currentTotalBooks = await serviceTopBooks();
@@ -172,10 +172,8 @@ function displayBooksPortion(limit = getBooksLimit()) {
 
   if (currentBooksDisplayed < currentTotalBooks.length) {
     refs.showMoreBtn.classList.remove('show-more-hidden');
-    refs.showMoreBtn.onclick = onShowMore;
   } else {
     refs.showMoreBtn.classList.add('show-more-hidden');
-    refs.showMoreBtn.onclick = null;
   }
 }
 
@@ -192,7 +190,7 @@ async function handleCategoryClick(event) {
 
   if (activeCategory === newActiveCategory) {
     refs.categoryMenuContainer.classList.remove('is-open');
-    refs.categorycategoryToggleBtn.classList.remove('is-open');
+    refs.categoryToggleBtn.classList.remove('is-open');
     return;
   }
 
@@ -204,7 +202,7 @@ async function handleCategoryClick(event) {
   refs.categoryToggleBtn.classList.remove('is-open');
 }
 
-//-------------------- For modal window (Change alert to modal)---------------------
+//------------------- For modal window (Change alert to modal)---------------
 async function handleLearnMoreClick(event) {
   const learnMoreBtn = event.target.closest('.learn-more-btn');
   if (learnMoreBtn) {
@@ -278,6 +276,7 @@ async function initializeApp() {
 // --- Event Listeners ---
 refs.categoryToggleBtn.addEventListener('click', toggleCategory);
 refs.booksContainer.addEventListener('click', handleLearnMoreClick);
+refs.showMoreBtn.addEventListener('click', onShowMore);
 
 window.addEventListener('click', function (event) {
   if (
