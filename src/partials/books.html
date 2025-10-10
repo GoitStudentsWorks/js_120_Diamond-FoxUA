@@ -8,26 +8,22 @@
           >Showing 0 of 0</span
         >
       </div>
-      <div class="a">
+      <div class="books-categories">
         <button
-          class="books-section-categories-btn"
-          id="books-section-categories-btn"
+          class="books-categories-btn"
+          id="books-categories-btn"
+          data-category-list-toggle
         >
-          Categories
+          Categories <span class="arrow-icon"></span>
         </button>
-        <div class="books-section-categories">
-          <ul
-            class="books-section-categories-menu"
-            id="books-section-categories-menu"
-          ></ul>
+        <div class="books-categories-menu" data-category-list>
+          <ul class="books-categories-list" id="books-categories-list"></ul>
         </div>
       </div>
     </div>
 
     <ul class="js-books-list books-list"></ul>
 
-    <div class="button-container">
-      <button class="js-load-more load-more-hidden">Load more</button>
-    </div>
+    <button class="books-show-more-btn show-more-hidden">Show more</button>
   </div>
 </section>

@@ -5,71 +5,288 @@ const CATEGORY_LIST = '/books/category-list';
 const TOP_BOOKS = '/books/top-books';
 const BOOKS_BY_CATEGORY = '/books/category';
 const BOOK_DETAILS = '/books/';
+const ITEMS_PER_PAGE_MOBILE = 10;
+const ITEMS_PER_PAGE_TABLET_DESKTOP = 24;
 
-const container = document.querySelector('.js-books-list');
-const loadBtn = document.querySelector('.js-load-more');
-let page = 1;
+const refs = {
+  categoryToggleBtn: document.querySelector('[data-category-list-toggle]'),
+  categoryMenuContainer: document.querySelector('[data-category-list]'),
+  categoryListElement: document.querySelector('.books-categories-list'),
+  booksContainer: document.querySelector('.js-books-list'),
+  showMoreBtn: document.querySelector('.books-show-more-btn'),
+  booksShowingCount: document.querySelector('.books-showing-count'),
+};
 
-loadBtn.addEventListener('click', onLoadMore);
+let categories = [];
+let activeCategory = 'All categories';
+let currentTotalBooks = [];
+let currentPage = 0;
+let currentBooksDisplayed = 0;
 
-async function serviceMovie() {
-  const { data } = await axios(`${BASE_URL}${TOP_BOOKS}`);
-  console.log(data);
+function getBooksLimit() {
+  if (window.innerWidth < 768) {
+    return ITEMS_PER_PAGE_MOBILE;
+  } else {
+    return ITEMS_PER_PAGE_TABLET_DESKTOP;
+  }
+}
 
+async function fetchData(url, options = {}) {
+  try {
+    const { data } = await axios(url, options);
+    return data;
+  } catch (error) {
+    iziToast.error({
+      title: 'Error',
+      titleColor: '#ffffff',
+      message: `Request failed: <u>${error.message}</u>`,
+      messageColor: '#ffffff',
+      backgroundColor: '#ef4040',
+      position: 'topRight',
+      timeout: 4000,
+      animateInside: true,
+      progressBar: false,
+      close: false,
+      closeOnClick: true,
+    });
+    throw error;
+  }
+}
+
+// ---  API Services ---
+async function serviceCategoryList() {
+  const data = await fetchData(`${BASE_URL}${CATEGORY_LIST}`);
+  return data.map(category => category.list_name);
+}
+
+async function serviceTopBooks() {
+  const data = await fetchData(`${BASE_URL}${TOP_BOOKS}`);
+  return data.flatMap(item => item.books);
+}
+
+async function serviceBooksByCategory(categoryName) {
+  const params = { category: categoryName };
+  return await fetchData(`${BASE_URL}${BOOKS_BY_CATEGORY}`, {
+    params,
+  });
+}
+
+async function serviceBookDetails(bookId) {
+  const data = await fetchData(`${BASE_URL}${BOOK_DETAILS}${bookId}`);
+  console.log(`Book details for ID ${bookId}:`, data);
   return data;
 }
 
-serviceMovie()
-  .then(data => {
-    container.insertAdjacentHTML('beforeend', createMarkup(data));
-    // if (data.page < data.total_pages) {
-    //   loadBtn.classList.replace('load-more-hidden', 'load-more');
-    // }
-  })
-  .catch(error => {
-    alert(error.message);
-  });
+// --- Markup Functions ---
+function createMarkupCategoryList(arr) {
+  const allCategoriesLink = `
+    <li class="books-categories-item">
+      <a href="#" class="books-categories-list-link ${
+        activeCategory === 'All categories' ? 'active' : ''
+      }">All categories</a>
+    </li>
+  `;
 
-function createMarkup(arr) {
-  console.log(Array.isArray(arr));
-
-  const allBooks = arr.flatMap(item => item.books);
-
-  return allBooks
+  const categoryItems = arr
+    .filter(name => name !== 'All categories')
     .map(
-      ({ book_image, title, author, price }) => `
-        <li class="books-card">
-            <img class="books-card-img" src= "${book_image}" alt="${title}"/>
+      name => `
+        <li class="books-categories-item">
+          <a href="#" class="books-categories-list-link ${
+            name === activeCategory ? 'active' : ''
+          }">${name}</a>
+        </li>
+      `
+    )
+    .join('');
+
+  return allCategoriesLink + categoryItems;
+}
+
+function createMarkupBooks(arr) {
+  if (arr.length === 0) {
+    return '<li class="no-books-message">No books found for this category.</li>';
+  }
+  return arr
+    .map(
+      ({ book_image, title, author, price, _id }) => `
+        <li class="books-card" data-book-id="${_id}">
+            <img class="books-card-img" src="${book_image}" alt="${title}"/>
             <div class="books-info">
                 <div class="books-info-left">
                    <h4 class="books-h section-subtitle">${title}</h4>
                    <p>${author}</p>
+                   
                 </div>
-                <p class="books-price">$${price}</p>
+                <p>$${price}</p>
             </div>
-            <button class="learn-more-btn" type="button">Learn more</button>
+            <button class="learn-more-btn" type="button" data-book-modal-open data-book-id="${_id}">Learn more</button>
         </li>
     `
     )
     .join('');
 }
 
-async function onLoadMore() {
-  page += 1;
-  loadBtn.disabled = true;
+// --- Render Functions ---
+function renderCategories() {
+  refs.categoryListElement.innerHTML = createMarkupCategoryList(categories);
 
-  try {
-    const data = await serviceMovie(page);
-    console.log(data);
+  refs.categoryListElement
+    .querySelectorAll('.books-categories-list-link')
+    .forEach(link => {
+      link.addEventListener('click', handleCategoryClick);
+    });
+}
 
-    container.insertAdjacentHTML('beforeend', createMerkup(data.results));
+async function renderBooks() {
+  refs.booksContainer.innerHTML = '';
+  refs.showMoreBtn.classList.add('show-more-hidden');
+  refs.showMoreBtn.removeEventListener('click', onShowMore);
 
-    if (data.page >= data.total_pages) {
-      loadBtn.classList.replace('load-more', 'load-more-hidden');
-    }
-  } catch (error) {
-    alert(error.message);
-  } finally {
-    loadBtn.disabled = false;
+  if (activeCategory === 'All categories') {
+    currentTotalBooks = await serviceTopBooks();
+  } else {
+    currentTotalBooks = await serviceBooksByCategory(activeCategory);
+  }
+
+  currentPage = 0;
+  currentBooksDisplayed = 0;
+  displayBooksPortion();
+}
+
+function displayBooksPortion(limit = getBooksLimit()) {
+  const startIndex = currentPage * limit;
+  const endIndex = Math.min(startIndex + limit, currentTotalBooks.length);
+  const booksToDisplay = currentTotalBooks.slice(startIndex, endIndex);
+
+  refs.booksContainer.insertAdjacentHTML(
+    'beforeend',
+    createMarkupBooks(booksToDisplay)
+  );
+
+  currentBooksDisplayed = endIndex;
+
+  refs.booksShowingCount.textContent = `Showing ${currentBooksDisplayed} of ${currentTotalBooks.length}`;
+
+  currentPage++;
+
+  if (currentBooksDisplayed < currentTotalBooks.length) {
+    refs.showMoreBtn.classList.remove('show-more-hidden');
+    refs.showMoreBtn.onclick = onShowMore;
+  } else {
+    refs.showMoreBtn.classList.add('show-more-hidden');
+    refs.showMoreBtn.onclick = null;
   }
 }
+
+// --- Event Handlers ---
+function toggleCategory() {
+  refs.categoryMenuContainer.classList.toggle('is-open');
+  refs.categoryToggleBtn.classList.toggle('is-open');
+}
+
+async function handleCategoryClick(event) {
+  event.preventDefault();
+
+  const newActiveCategory = event.target.textContent;
+
+  if (activeCategory === newActiveCategory) {
+    refs.categoryMenuContainer.classList.remove('is-open');
+    refs.categorycategoryToggleBtn.classList.remove('is-open');
+    return;
+  }
+
+  activeCategory = newActiveCategory;
+  renderCategories();
+  await renderBooks();
+
+  refs.categoryMenuContainer.classList.remove('is-open');
+  refs.categoryToggleBtn.classList.remove('is-open');
+}
+
+//-------------------- For modal (Change alert to modal)---------------------
+async function handleLearnMoreClick(event) {
+  const learnMoreBtn = event.target.closest('.learn-more-btn');
+  if (learnMoreBtn) {
+    const bookId = learnMoreBtn.dataset.bookId;
+
+    if (bookId) {
+      try {
+        const bookDetails = await serviceBookDetails(bookId);
+        alert(
+          `Book Title: ${bookDetails.title}\nAuthor: ${
+            bookDetails.author
+          }\nDescription: ${bookDetails.description.substring(0, 100)}...`
+        );
+      } catch (error) {
+        alert('Failed to load book details. Please try again later.');
+        console.error('Failed to show book details:', error);
+      }
+    }
+  }
+}
+// --------------------------------------------------------------------------
+
+async function onShowMore() {
+  refs.showMoreBtn.disabled = true;
+
+  try {
+    displayBooksPortion(4);
+  } catch (error) {
+    iziToast.error({
+      title: 'Error',
+      message: `Failed to load books: ${error.message}`,
+      backgroundColor: '#ef4040',
+      titleColor: '#fff',
+      messageColor: '#fff',
+      position: 'topRight',
+    });
+  } finally {
+    refs.showMoreBtn.disabled = false;
+  }
+}
+
+// --- Initialization ---
+async function initializeApp() {
+  categories = await serviceCategoryList();
+
+  if (!categories.includes('All categories')) {
+    categories = ['All categories', ...categories];
+  }
+
+  renderCategories();
+
+  refs.categoryToggleBtn.firstChild.textContent = 'Categories ';
+
+  await renderBooks();
+
+  let prevBooksLimit = getBooksLimit();
+
+  window.addEventListener('resize', () => {
+    const newLimit = getBooksLimit();
+    if (newLimit !== prevBooksLimit) {
+      prevBooksLimit = newLimit;
+
+      refs.booksContainer.innerHTML = '';
+      currentPage = 0;
+      currentBooksDisplayed = 0;
+      displayBooksPortion(newLimit);
+    }
+  });
+}
+
+// --- Event Listeners ---
+refs.categoryToggleBtn.addEventListener('click', toggleCategory);
+refs.booksContainer.addEventListener('click', handleLearnMoreClick);
+
+window.addEventListener('click', function (event) {
+  if (
+    !refs.categoryToggleBtn.contains(event.target) &&
+    !refs.categoryMenuContainer.contains(event.target)
+  ) {
+    refs.categoryMenuContainer.classList.remove('is-open');
+    refs.categoryToggleBtn.classList.remove('is-open');
+  }
+});
+
+document.addEventListener('DOMContentLoaded', initializeApp);

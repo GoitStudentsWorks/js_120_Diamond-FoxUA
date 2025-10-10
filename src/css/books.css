@@ -1,5 +1,6 @@
 .books {
   padding-top: 32px;
+  width: 100%;
 }
 
 .books-header {
@@ -10,7 +11,7 @@
   font-size: 14px;
 }
 
-.books-section-categories {
+.books-categories {
   display: block;
   max-width: 343px;
   width: 100%;
@@ -23,27 +24,116 @@
   margin-bottom: 24px;
 }
 
-.books-section-categories-btn {
+.books-categories {
+  position: relative;
+}
+
+.books-categories-btn,
+.books-show-more-btn {
   width: 100%;
   height: 43px;
+  border: 1px solid rgba(11, 5, 0, 0.15);
   border-radius: 4px;
-  padding: 8px 12px;
+  padding: 8px 18px 8px 12px;
   background: rgba(11, 5, 0, 0.05);
-  border: none;
   color: var(--color-black);
   font-weight: 400;
   line-height: 1.5;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Розносить текст і стрілку */
+  justify-content: space-between;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* .books-section-categories-btn::after {
-  content: '▼'; 
-  margin-left: 8px;
-  font-size: 0.8em;
+.arrow-icon {
+  border: solid var(--color-black);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.books-categories-btn.is-open .arrow-icon {
+  transform: rotate(-135deg);
+}
+
+.books-categories-menu {
+  display: none;
+  position: absolute;
+  background: var(--background-color);
+  background-image: linear-gradient(rgba(11, 5, 0, 0.05), rgba(11, 5, 0, 0.05));
+  width: 100%;
+  z-index: 999;
+  border: 1px solid rgba(11, 5, 0, 0.15);
+  border-radius: 4px;
+  height: 296px;
+  overflow-y: auto;
+  top: 100%;
+  left: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  margin-top: 4px;
+}
+
+.books-categories-menu.is-open {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.books-categories-menu {
+  display: none;
+}
+
+.books-categories-list::-webkit-scrollbar {
+  width: 3px;
+}
+
+.books-categories-list {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.books-categories-list-link {
+  padding: 8px 12px;
+  display: block;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* .books-categories-list-link:hover {
+  background-color: #e0e0e0;
+}
+
+.books-categories-list-link.active {
+  background-color: rgba(11, 5, 0, 0.05);
 } */
+
+/* Скролбар */
+.books-categories-list::-webkit-scrollbar {
+  /* Скролбар тепер на ul */
+  width: 3px;
+  height: 280px;
+}
+
+.books-categories-list::-webkit-scrollbar-track {
+  background: rgba(11, 5, 0, 0.15);
+  border-radius: 4px;
+  padding: 8px 13px;
+}
+
+.books-categories-list::-webkit-scrollbar-thumb {
+  background-color: var(--color-orange-btn);
+  border-radius: 4px;
+  width: 5px;
+  height: 47px;
+}
+
+.books-categories-list::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-hover-btn);
+}
 
 .books-list {
   display: flex;
@@ -80,8 +170,6 @@
 }
 
 .books-info-left {
-  /* flex-basis: 70%; */
-  /* max-width: 70%; */
   min-width: 0;
 }
 
@@ -96,16 +184,12 @@
   font-weight: 600;
 }
 
-.load-more:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
-}
-
 .learn-more-btn {
+  display: inline-block;
   height: 40px;
   padding: 8px 20px;
   background: transparent;
-  border: 1px solid #0b0500;
+  border: 1px solid var(--color-black);
   border-radius: 4px;
   color: var(--color-black);
   font-weight: 400;
@@ -116,23 +200,23 @@
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.load-more-hidden {
-  display: none;
+.books-show-more-btn {
+  height: 48px;
+  border: none;
+  padding: 12px 24px;
+  background: var(--color-orange-btn);
+  color: var(--color-white);
+  font-weight: 400;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 300ms ease-in-out;
+  margin-top: 24px;
 }
 
-.load-more {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 1.2em;
-  font-weight: bold;
-  text-align: center;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+.show-more-hidden {
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -147,15 +231,14 @@
     margin-bottom: 0;
   }
 
-  .books-section-categories {
-    position: relative;
-    /* margin-bottom: 0; */
+  .books-categories {
+    max-width: 249px;
+    margin-left: auto;
   }
 
-  .books-section-categories-btn {
-    width: auto;
-    width: 249px;
-    margin-left: auto;
+  .books-categories {
+    position: relative;
+    /* margin-bottom: 0; */
   }
 
   .books-list {
@@ -164,6 +247,11 @@
 
   .books-card {
     width: calc((100% - 24px) / 2);
+  }
+
+  .books-show-more-btn {
+    width: 342px;
+    margin: 24px auto 0;
   }
 }
 
