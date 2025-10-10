@@ -142,6 +142,7 @@ function renderCategories() {
 
 async function renderBooks() {
   refs.booksContainer.innerHTML = '';
+  refs.showMoreBtn.classList.add('show-more-hidden');
 
   if (activeCategory === 'All categories') {
     currentTotalBooks = await serviceTopBooks();
@@ -202,7 +203,7 @@ async function handleCategoryClick(event) {
   refs.categoryToggleBtn.classList.remove('is-open');
 }
 
-//----------------- For modal window (Change alert to modal)---------------
+//------------------- For modal window (Change alert to modal)---------------
 async function handleLearnMoreClick(event) {
   const learnMoreBtn = event.target.closest('.learn-more-btn');
   if (learnMoreBtn) {
@@ -222,7 +223,8 @@ async function handleLearnMoreClick(event) {
       }
     }
   }
-// ------------------------------------------------------------------------
+}
+// --------------------------------------------------------------------------
 
 async function onShowMore() {
   refs.showMoreBtn.disabled = true;
