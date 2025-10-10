@@ -15,7 +15,7 @@ function openModal(eventName) {
     <div class="modal">
       <button type="button" class="modal-close" aria-label="Close modal">
         <svg width="16" height="16">
-         <use href="/src/img/icons.svg#icon-close"></use>
+         <use href="./src/img/icons.svg#icon-close"></use>
         </svg>
       </button>
       <h2 class="modal-title">Register</h2>
@@ -44,9 +44,6 @@ function openModal(eventName) {
 
   const closeBtn = backdrop.querySelector(".modal-close");
   const form = backdrop.querySelector("#register-form");
-
-  form.querySelectorAll('.error-text').forEach(el => el.remove());
-  form.querySelectorAll('input, textarea').forEach(el => el.classList.remove('error'));
 
   closeBtn.addEventListener("click", closeModal);
   backdrop.addEventListener("click", onBackdropClick);
@@ -80,8 +77,8 @@ function onFormSubmit(e) {
   const name = nameInput.value.trim();
   const email = emailInput.value.trim();
 
+  form.querySelectorAll('input, textarea').forEach(input => resetInput(input));
   form.querySelectorAll('.error-text').forEach(el => el.remove());
-  form.querySelectorAll('input, textarea').forEach(el => el.classList.remove('error'));
 
   let hasError = false;
 
@@ -106,16 +103,29 @@ function onFormSubmit(e) {
     timeout: 2500,
   });
 
-  closeModal();
+  setTimeout(() => closeModal(), 2500);
 }
 
 function showError(input, message) {
   input.classList.add('error');
+
+  if (!input.dataset.originalPlaceholder) {
+    input.dataset.originalPlaceholder = input.placeholder;
+  }
+
   input.placeholder = message;
+
   const errorEl = document.createElement('p');
   errorEl.classList.add('error-text');
   errorEl.textContent = message;
   input.insertAdjacentElement('afterend', errorEl);
+}
+
+function resetInput(input) {
+  input.classList.remove('error');
+  if (input.dataset.originalPlaceholder) {
+    input.placeholder = input.dataset.originalPlaceholder;
+  }
 }
 
 function isValidEmail(email) {
