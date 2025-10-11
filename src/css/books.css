@@ -226,10 +226,10 @@
   margin-top: 24px;
 }
 
-/* .books-show-more-btn:hover,
+.books-show-more-btn:hover,
 .books-show-more-btn:focus {
   background-color: var(--color-black);
-} */
+}
 
 .books-show-more-btn:active {
   background-color: var(--color-hover-btn);
