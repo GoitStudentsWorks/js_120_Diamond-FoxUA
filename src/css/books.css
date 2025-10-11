@@ -264,6 +264,10 @@ ul li:first-child .books-categories-list-link {
     max-width: 249px;
   }
 
+  .books-categories-menu {
+    height: 338px;
+  }
+
   .books-list {
     gap: 40px 24px;
   }
@@ -302,7 +306,8 @@ ul li:first-child .books-categories-list-link {
     background: transparent;
     background-image: none;
     border: none;
-    height: auto;
+    /* height: auto; */
+    height: 308px;
     overflow-y: none;
     top: 100%;
     left: 0;
