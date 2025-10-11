@@ -135,6 +135,10 @@
   opacity: 0.2;
 }
 
+ul li:first-child .books-categories-list-link {
+  padding-top: 0;
+}
+
 .books-list {
   display: flex;
   flex-wrap: wrap;
@@ -155,7 +159,6 @@
   height: 488px;
   border-radius: 8px;
   margin-bottom: 16px;
-  gap: 16px;
 }
 
 .books-info {
@@ -316,10 +319,6 @@
 
   .books-categories-list-link {
     font-size: 18px;
-  }
-
-  ul li:first-child .books-categories-list-link {
-    padding-top: 0;
   }
 
   .books-list-wrapper {
