@@ -1,22 +1,11 @@
 /*Mobile styles (default) */
 .article {
-  padding: 64px 0;
-
+  padding: 64px 0px;
 }
-
-.article-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 32px;
-  width: 100%;
-}
-
 .article-title {
   font-weight: 600;
   font-size: 36px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   line-height: 1.2;
 }
 
@@ -37,7 +26,6 @@
 /* Tablet styles */
 @media only screen and (min-width: 768px) {
   .article-title {
-    font-size: 36px;
     margin-bottom: 24px;
   }
 }
