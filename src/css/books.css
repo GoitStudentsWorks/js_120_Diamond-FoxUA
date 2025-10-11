@@ -309,6 +309,7 @@ ul li:first-child .books-categories-list-link {
     top: 100%;
     left: 0;
     margin-top: 24px;
+    position: static;
   }
 
   .books-categories-menu {
