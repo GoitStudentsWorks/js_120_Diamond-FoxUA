@@ -1,5 +1,5 @@
 <section class="books" id="books">
-  <div class="container">
+  <div class="container books-container">
     <h2 class="visually-hidden">Trending books</h2>
     <div class="books-header">
       <div class="books-info-top">
@@ -18,12 +18,16 @@
         </button>
         <div class="books-categories-menu" data-category-list>
           <ul class="books-categories-list" id="books-categories-list"></ul>
+          <div class="books-categories-scrollbar">
+            <div class="books-categories-scrollbar-thumb"></div>
+          </div>
         </div>
       </div>
     </div>
+    <div class="books-list-wrapper">
+      <ul class="js-books-list books-list"></ul>
 
-    <ul class="js-books-list books-list"></ul>
-
-    <button class="books-show-more-btn show-more-hidden">Show more</button>
+      <button class="books-show-more-btn show-more-hidden">Show more</button>
+    </div>
   </div>
 </section>

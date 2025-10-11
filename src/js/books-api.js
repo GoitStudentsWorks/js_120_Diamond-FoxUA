@@ -1,6 +1,7 @@
 import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import { Scrollbar } from 'swiper/modules';
 
 const BASE_URL = 'https://books-backend.p.goit.global';
 const CATEGORY_LIST = '/books/category-list';
@@ -180,8 +181,12 @@ function displayBooksPortion(limit = getBooksLimit()) {
 
 // --- Event Handlers ---
 function toggleCategory() {
-  refs.categoryMenuContainer.classList.toggle('is-open');
+  const isOpen = refs.categoryMenuContainer.classList.toggle('is-open');
   refs.categoryToggleBtn.classList.toggle('is-open');
+
+  if (isOpen) {
+    updateCategoryThumb();
+  }
 }
 
 async function handleCategoryClick(event) {
@@ -274,9 +279,69 @@ async function initializeApp() {
   });
 }
 
+//--- Scrollbar---
+const categoryList = refs.categoryListElement;
+const categoryThumb = document.querySelector(
+  '.books-categories-scrollbar-thumb'
+);
+
+function updateCategoryThumb() {
+  const { scrollTop, scrollHeight, clientHeight } = categoryList;
+  const ratio = clientHeight / scrollHeight;
+  const thumbHeight = Math.max(ratio * clientHeight, 24);
+  const maxTop = clientHeight - thumbHeight;
+  const top = (scrollTop / (scrollHeight - clientHeight)) * maxTop || 0;
+
+  categoryThumb.style.height = thumbHeight + 'px';
+  categoryThumb.style.top = top + 'px';
+}
+
+categoryList.addEventListener('scroll', updateCategoryThumb);
+window.addEventListener('resize', updateCategoryThumb);
+updateCategoryThumb();
+
+let isDragging = false;
+let startY = 0;
+let startScrollTop = 0;
+
+categoryThumb.addEventListener('mousedown', e => {
+  isDragging = true;
+  startY = e.clientY;
+  startScrollTop = categoryList.scrollTop;
+  document.body.style.userSelect = 'none';
+});
+
+document.addEventListener('mousemove', e => {
+  if (!isDragging) return;
+
+  const { scrollHeight, clientHeight } = categoryList;
+  const maxScroll = scrollHeight - clientHeight;
+
+  const thumbHeight = categoryThumb.offsetHeight;
+  const maxThumbTop = clientHeight - thumbHeight;
+
+  const deltaY = e.clientY - startY;
+  const scrollDelta = (deltaY / maxThumbTop) * maxScroll;
+
+  categoryList.scrollTop = startScrollTop + scrollDelta;
+  updateCategoryThumb();
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  document.body.style.userSelect = '';
+});
+
 // --- Event Listeners ---
 refs.categoryToggleBtn.addEventListener('click', toggleCategory);
-refs.booksContainer.addEventListener('click', handleLearnMoreClick);
+refs.booksContainer.addEventListener('click', event => {
+  const learnMoreBtn = event.target.closest('.learn-more-btn');
+  if (!learnMoreBtn) return;
+
+  learnMoreBtn.blur();
+
+  handleLearnMoreClick(event);
+});
 refs.showMoreBtn.addEventListener('click', onShowMore);
 
 window.addEventListener('click', function (event) {
