@@ -36,6 +36,7 @@
   color: var(--color-black);
   font-weight: 400;
   line-height: 1.5;
+  outline: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -306,8 +307,7 @@ ul li:first-child .books-categories-list-link {
     background: transparent;
     background-image: none;
     border: none;
-    /* height: auto; */
-    height: 308px;
+    height: auto;
     overflow-y: none;
     top: 100%;
     left: 0;
