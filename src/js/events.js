@@ -1,37 +1,36 @@
-let eventsSwiper;
+import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
 
-function initEventsSwiper() {
-  const screenWidth = window.innerWidth;
+document.addEventListener('DOMContentLoaded', () => {
+  const swiperEl = document.querySelector('.events-swiper');
+  if (!swiperEl) return;
 
-  if (screenWidth <= 1440 && !eventsSwiper) {
-    // Активуємо свайпер тільки на планшетах і мобілках
-    eventsSwiper = new Swiper('.events-swiper', {
-      slidesPerView: 1,
-      spaceBetween: 16,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      breakpoints: {
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 24,
-        },
-        0: {
-          slidesPerView: 1,
-        },
-      },
-    });
-  } else if (screenWidth > 1023 && eventsSwiper) {
-    // Вимикаємо свайпер на десктопі
-    eventsSwiper.destroy(true, true);
-    eventsSwiper = null;
+  new Swiper(swiperEl, {
+    modules: [Navigation, Pagination],
+    slidesPerView: 1,
+    spaceBetween: 24,
 
-    // Повертаємо звичайний флекс
-    const wrapper = document.querySelector('.events-list');
-    wrapper.style.transform = '';
-  }
-}
+    // Адаптивна кількість слайдів
+    breakpoints: {
+      768: { slidesPerView: 2 },
+      1440: { slidesPerView: 3 },
+    },
 
-window.addEventListener('load', initEventsSwiper);
-window.addEventListener('resize', initEventsSwiper);
+    // Кастомна пагінація (точки)
+    pagination: {
+      el: '.ev-pagination',
+      clickable: true,
+      renderBullet: (index, className) =>
+        `<li class="${className}" aria-label="Go to slide ${index + 1}"></li>`,
+      bulletClass: 'ev-dot',
+      bulletActiveClass: 'ev-dot--active',
+    },
+
+    navigation: {
+      nextEl: '.events-swiper-btn-next',
+      prevEl: '.events-swiper-btn-prev',
+    },
+
+    watchOverflow: true,
+  });
+});

@@ -3,12 +3,14 @@
   font-weight: 600;
   font-size: 16px;
 }
+
 .events-title {
   font-weight: 600;
   font-size: 36px;
   line-height: 1.2;
   margin-bottom: 16px;
 }
+
 .events-text {
   font-weight: 400;
   font-size: 18px;
@@ -17,12 +19,14 @@
   font-size: 18px;
   margin-bottom: 32px;
 }
+
 .events-image img {
   border-radius: 16px;
   width: 342px;
   height: 277px;
   margin-bottom: 24px;
 }
+
 .events-content-wrapper {
   display: flex;
   flex-direction: column;
@@ -30,23 +34,25 @@
   height: 220px;
   width: 100%;
 }
+
 .events-description {
   font-size: 24px;
   line-height: 1.4;
 }
+
 .event-meta {
   display: flex;
   align-items: center;
   margin-bottom: 8px;
 }
+
 .event-location::after {
   content: '';
   display: inline-block;
-  /* width: 1px; */
   height: 14px;
   background-color: var(--text-main-color);
-  /* margin: 0 8px; */
 }
+
 .events-btn {
   display: flex;
   gap: 8px;
@@ -79,24 +85,28 @@
   justify-content: space-between;
   align-items: cente;
 }
-/* .swiper-pagination.events-pagination {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-125%);
-  width: auto;
-  text-align: left;
-  display: flex;
-  gap: 8px;
-  z-index: 1;
-} */
 
-/* .swiper-pagination.events-pagination {
+.ev-pagination {
   display: flex;
+  justify-content: flex-start;
   gap: 8px;
-  align-items: center;
-  z-index: 5;
-} */
+  list-style: none;
+  padding: 0;
+  margin: 32px 0 0;
+}
+
+.ev-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.ev-dot--active {
+  background-color: #010101;
+}
 
 .svg {
   fill: white;
@@ -110,11 +120,13 @@
   opacity: 0.3;
   transition: transform 0.18s ease, background-color 0.18s ease;
 }
+
 .events-pagination .swiper-pagination-bullet-active {
   background-color: var(--text-main-color);
   opacity: 1;
   transform: scale(1.4);
 }
+
 .events-buttons-wrapper {
   position: absolute;
   right: 0;
@@ -124,6 +136,7 @@
   gap: 16px;
   z-index: 2;
 }
+
 .events-swiper-btn-prev,
 .events-swiper-btn-next {
   width: 48px;
@@ -135,6 +148,7 @@
   .events-image img {
     width: 340px;
   }
+
   .events-text {
     width: 560px;
   }
@@ -143,17 +157,21 @@
   .events-title {
     font-size: 48px;
   }
+
   .events-image img {
     width: 421px;
   }
+
   .events-controls-wrapper {
     display: none;
   }
+
   .events-list {
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
   }
+
   .events-item {
     flex: 1;
   }
