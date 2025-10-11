@@ -38,7 +38,7 @@ function createBookModal(book) {
           <div class="accordion-item">
             <button class="accordion-header">
               Details
-              <svg class="accordion-icon" width="14" height="14">
+              <svg class="accordion-icon" width="14" height="8">
                 <use href="./src/img/icons-modal.svg#icon-down"></use>
               </svg>
             </button>
@@ -48,7 +48,7 @@ function createBookModal(book) {
           <div class="accordion-item">
             <button class="accordion-header">
               Shipping
-              <svg class="accordion-icon" width="14" height="14">
+              <svg class="accordion-icon" width="14" height="8">
                 <use href="./src/img/icons-modal.svg#icon-down"></use>
               </svg>
             </button>
@@ -58,7 +58,7 @@ function createBookModal(book) {
           <div class="accordion-item">
             <button class="accordion-header">
               Returns
-              <svg class="accordion-icon" width="14" height="14">
+              <svg class="accordion-icon" width="14" height="8">
                 <use href="./src/img/icons-modal.svg#icon-down"></use>
               </svg>
             </button>
