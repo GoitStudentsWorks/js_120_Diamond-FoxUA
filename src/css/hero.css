@@ -1,5 +1,5 @@
-.hero .container {
-    padding: 0 16px;
+.hero{
+    padding-bottom: 32px;
 }
 
 .hero-swiper {
@@ -124,6 +124,17 @@
     font-size: 40px;
     line-height: 1.2;
     letter-spacing: -0.01em;
-    color: var(--color-black);
-    margin-bottom: 32px;
+}
+
+@media only screen and (min-width: 768px) {
+    .main-title {
+        max-width: 560px;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .main-title {
+        max-width: 1168px;
+        font-size: 52px;
+    }
 }
