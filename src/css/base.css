@@ -55,6 +55,10 @@ body {
   border: 0;
 }
 
+.hidden {
+  display: none;
+}
+
 .section-title {
   font-weight: 600;
   font-size: 36px;
