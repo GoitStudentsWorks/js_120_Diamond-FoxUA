@@ -3,22 +3,23 @@ import "accordion-js/dist/accordion.min.css";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
-function createBookModal(book) {
-  const modal = document.createElement("div");
-  modal.classList.add("modal");
-  modal.id = "book-modal";
+const backdrop = document.querySelector("#modal-backdrop");
+const body = document.body;
 
-  modal.innerHTML = `
-    <div class="modal-content">
-      <button class="close-btn" aria-label="Close modal">
-        <svg width="16" height="16">
-          <use href="./src/img/icons-modal.svg#icon-close"></use>
-        </svg>
-      </button>
+export async function openBookModal(bookId) {
+  try {
+    const res = await fetch(`https://books-backend.p.goit.global/books/${bookId}`);
+    const book = await res.json();
 
-      <div class="modal-body">
+    const modalMarkup = `
+      <div class="modal">
+        <button type="button" class="modal-close" aria-label="Close modal">
+          <svg width="16" height="16">
+            <use href="./src/img/icons-modal.svg#icon-close"></use>
+          </svg>
+        </button>
+
         <img src="${book.book_image || ''}" alt="${book.title}" class="book-image"/>
-
         <h2 class="book-title">${book.title || 'No title'}</h2>
         <p class="book-author">${book.author || 'Unknown author'}</p>
         <p class="book-price">${book.price ? `$${book.price}` : 'N/A'}</p>
@@ -66,46 +67,36 @@ function createBookModal(book) {
           </div>
         </div>
       </div>
-    </div>
-  `;
+    `;
 
-  return modal;
-}
+    backdrop.innerHTML = modalMarkup;
+    backdrop.classList.add("is-open");
+    body.classList.add("no-scroll");
 
-export async function openBookModal(bookId) {
-  try {
-    const res = await fetch(`https://books-backend.p.goit.global/books/${bookId}`);
-    const book = await res.json();
+    const modal = backdrop.querySelector(".modal");
+    const closeBtn = modal.querySelector(".modal-close");
 
-    const modal = createBookModal(book);
-    document.body.appendChild(modal);
+    closeBtn.addEventListener("click", closeModal);
+    backdrop.addEventListener("click", onBackdropClick);
+    window.addEventListener("keydown", onEscKey);
 
-    new Accordion(modal.querySelector(".accordion"), {
-      duration: 300,
-      showMultiple: false,
-    });
 
-    document.body.style.overflow = "hidden";
-    modal.style.display = "flex";
-
-    const closeBtn = modal.querySelector(".close-btn");
-    closeBtn.addEventListener("click", () => closeModal(modal));
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) closeModal(modal);
-    });
-    document.addEventListener("keydown", onEscClose);
-
-    function onEscClose(e) {
-      if (e.key === "Escape") {
-        closeModal(modal);
-      }
+    function closeModal() {
+      backdrop.classList.remove("is-open");
+      body.classList.remove("no-scroll");
+      backdrop.innerHTML = "";
+      window.removeEventListener("keydown", onEscKey);
+      backdrop.removeEventListener("click", onBackdropClick);
     }
 
-    function closeModal(modal) {
-      modal.remove();
-      document.body.style.overflow = "";
-      document.removeEventListener("keydown", onEscClose);
+    function onBackdropClick(e) {
+      if (e.target === backdrop) closeModal();
     }
+
+    function onEscKey(e) {
+      if (e.key === "Escape") closeModal();
+    }
+
 
     const qtyInput = modal.querySelector(".bookQty");
     modal.querySelector(".increaseQty").addEventListener("click", () => {
@@ -114,6 +105,7 @@ export async function openBookModal(bookId) {
     modal.querySelector(".decreaseQty").addEventListener("click", () => {
       if (parseInt(qtyInput.value) > 1) qtyInput.value = parseInt(qtyInput.value) - 1;
     });
+
 
     modal.querySelector(".addToCart").addEventListener("click", () => {
       console.log(`Додано до кошика: ${qtyInput.value} шт.`);
@@ -125,6 +117,7 @@ export async function openBookModal(bookId) {
       });
     });
 
+
     modal.querySelector(".buyNow").addEventListener("click", (e) => {
       e.preventDefault();
       iziToast.info({
@@ -133,16 +126,22 @@ export async function openBookModal(bookId) {
         position: "topRight",
         timeout: 2500,
       });
+      setTimeout(() => {
+        closeModal();
+      }, 2500);
     });
 
-    const accordion = modal.querySelector(".accordion");
-    accordion.addEventListener("click", (e) => {
+
+    new Accordion(modal.querySelector(".accordion"), {
+      duration: 300,
+      showMultiple: false,
+    });
+
+    modal.querySelector(".accordion").addEventListener("click", (e) => {
       const header = e.target.closest(".accordion-header");
       if (!header) return;
-
       const iconUse = header.querySelector(".accordion-icon use");
       const body = header.nextElementSibling;
-
       setTimeout(() => {
         if (body && body.offsetHeight > 0) {
           iconUse.setAttribute("href", "./src/img/icons-modal.svg#icon-above");
@@ -162,3 +161,4 @@ export async function openBookModal(bookId) {
     });
   }
 }
+
