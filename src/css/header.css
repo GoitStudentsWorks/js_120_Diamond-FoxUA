@@ -19,6 +19,14 @@
   display: none;
 }
 
+.header-nav-link {
+  transition: opacity 300ms ease-in-out;
+}
+
+.header-nav-link:hover {
+  opacity: .2;
+}
+
 .menu-open-btn {
   display: flex;
   align-items: center;
