@@ -47,13 +47,13 @@
 /* Пагінація */
 
 /* Контейнер пагінації */
-.feedbacks-swiper .swiper-pagination {
-  position: absolute;
-  bottom: 10  px; /* відступ від низу слайдера */
-  left: 0;
-  width: 100%;
-  text-align: center;
-  z-index: 10;
+.swiper-pagination {
+  position: absolute; /* Ensure absolute positioning */
+  bottom: 10px; /* Adjust the distance from the bottom */
+  left: 0; /* Adjust the distance from the left */
+  width: 100%; /* Ensure it spans the full width if needed */
+  text-align: center; /* Center the bullets horizontally */
+  /* You can also use 'top', 'right' for other positions */
 }
 
 /* Звичайні крапочки */
@@ -69,13 +69,12 @@
 
 /* Активна крапочка */
 .feedbacks-swiper .swiper-pagination-bullet-active {
-  background: #ff4747;
+  background: #0b0500;
   opacity: 1;
 }
-
 
 .feedbacks-swiper .swiper-button-next,
 .feedbacks-swiper .swiper-button-prev {
   bottom: 0;
-  background-color: red;
+  background-color: #e15d05;
 }
