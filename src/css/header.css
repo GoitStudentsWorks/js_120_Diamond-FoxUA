@@ -10,9 +10,8 @@
   font-weight: 700;
 }
 
-.header-logo .logo-icon {
-  width: 84px;
-  height: 36px;
+.logo-icon {
+  padding: 14px 0;
 }
 
 .header-nav-list {
@@ -34,6 +33,7 @@
 
   background-color: transparent;
   border: none;
+  padding: 14px 5px 14px 0;
 
   fill: var(--color-black);
 }
