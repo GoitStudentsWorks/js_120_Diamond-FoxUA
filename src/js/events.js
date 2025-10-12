@@ -10,13 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
     slidesPerView: 1,
     spaceBetween: 24,
 
-    // Адаптивна кількість слайдів
     breakpoints: {
       768: { slidesPerView: 2 },
       1440: { slidesPerView: 3 },
     },
 
-    // Кастомна пагінація (точки)
     pagination: {
       el: '.ev-pagination',
       clickable: true,
