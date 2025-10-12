@@ -61,6 +61,10 @@ height: 395px;
 }
 
 @media screen and (min-width: 768px) {
+   .container {
+    margin-left: 32px;
+    margin-right: 32px;
+  }
   .text-and-contacts {
      display: flex;          
     align-items: flex-start; 
@@ -103,6 +107,10 @@ color: #0b0500;
 
 
 @media screen and (min-width: 1440px) {
+  .container {
+    margin-left: 64px;
+    margin-right: 64px;
+  }
    .text-and-contacts {
   display: flex;
 align-items: flex-start;

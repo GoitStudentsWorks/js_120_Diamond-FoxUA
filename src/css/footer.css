@@ -96,6 +96,9 @@
 
 /* MEDIA QUERIES */
 @media only screen and (min-width: 768px) {
+  .container {
+    padding: 0 64px;
+  }
   .footer {
     border: none;
     box-shadow: none;
