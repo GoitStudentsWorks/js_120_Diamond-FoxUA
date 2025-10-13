@@ -165,6 +165,8 @@ body.no-scroll {
 
 /* Button */
 .modal-form button {
+  display: block;
+  margin: 0 auto;
   font-size: 16px;
   color: #fff;
   background-color: var(--color-orange-btn);
