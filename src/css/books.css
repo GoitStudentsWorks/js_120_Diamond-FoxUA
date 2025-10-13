@@ -132,10 +132,6 @@
   opacity: 0.8;
 }
 
-.books-categories-list-link:disabled {
-  opacity: 0.2;
-}
-
 ul li:first-child .books-categories-list-link {
   padding-top: 0;
 }

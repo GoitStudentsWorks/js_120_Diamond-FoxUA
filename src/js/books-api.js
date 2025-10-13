@@ -1,7 +1,7 @@
 import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-// import { Scrollbar } from 'swiper/modules';
+import { openBookModal } from './book-modal.js';
 
 const BASE_URL = 'https://books-backend.p.goit.global';
 const CATEGORY_LIST = '/books/category-list';
@@ -208,28 +208,28 @@ async function handleCategoryClick(event) {
   refs.categoryToggleBtn.classList.remove('is-open');
 }
 
-//------------------- For modal window (Change alert to modal)-------------
 async function handleLearnMoreClick(event) {
   const learnMoreBtn = event.target.closest('.learn-more-btn');
-  if (learnMoreBtn) {
-    const bookId = learnMoreBtn.dataset.bookId;
+  if (!learnMoreBtn) return;
 
-    if (bookId) {
-      try {
-        const bookDetails = await serviceBookDetails(bookId);
-        alert(
-          `Book Title: ${bookDetails.title}\nAuthor: ${
-            bookDetails.author
-          }\nDescription: ${bookDetails.description.substring(0, 100)}...`
-        );
-      } catch (error) {
-        alert('Failed to load book details. Please try again later.');
-        console.error('Failed to show book details:', error);
-      }
+  const bookId = learnMoreBtn.dataset.bookId;
+
+  if (bookId) {
+    try {
+      await openBookModal(bookId);
+    } catch (error) {
+      iziToast.error({
+        title: 'Error',
+        message: 'Failed to load book details. Please try again later.',
+        position: 'topRight',
+        timeout: 2500,
+      });
+      console.error('Failed to open book modal:', error);
+    } finally {
+      learnMoreBtn.disabled = false;
     }
   }
 }
-// ------------------------------------------------------------------------
 
 async function onShowMore() {
   refs.showMoreBtn.disabled = true;
@@ -286,9 +286,8 @@ const categoryThumb = document.querySelector(
 );
 
 function updateCategoryThumb() {
-  const { scrollTop, scrollHeight, clientHeight } = categoryList;
-  const ratio = clientHeight / scrollHeight;
-  const thumbHeight = Math.max(ratio * clientHeight, 24);
+  const thumbHeight = 47;
+  const { scrollTop, clientHeight, scrollHeight } = categoryList;
   const maxTop = clientHeight - thumbHeight;
   const top = (scrollTop / (scrollHeight - clientHeight)) * maxTop || 0;
 
@@ -321,9 +320,15 @@ document.addEventListener('mousemove', e => {
   const maxThumbTop = clientHeight - thumbHeight;
 
   const deltaY = e.clientY - startY;
-  const scrollDelta = (deltaY / maxThumbTop) * maxScroll;
 
-  categoryList.scrollTop = startScrollTop + scrollDelta;
+  const sensitivity = 0.5;
+  const scrollDelta = (deltaY / maxThumbTop) * maxScroll * sensitivity;
+
+  categoryList.scrollTop = Math.min(
+    Math.max(startScrollTop + scrollDelta, 0),
+    maxScroll
+  );
+
   updateCategoryThumb();
 });
 
