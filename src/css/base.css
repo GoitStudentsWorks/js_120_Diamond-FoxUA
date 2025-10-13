@@ -19,6 +19,13 @@
   --color-brown-active-btn: #5a2502;
   --color-orange-footer: #ea8d50;
   --color-error-message: #ad0000;
+  --opacity-white-20: rgba(255, 255, 255, 0.2);
+  --opacity-neutral-darkest-5: rgba(11, 5, 0, 0.05);
+  --opacity-neutral-darkest-15: rgba(11, 5, 0, 0.15);
+  --opacity-neutral-darkest-60: rgba(11, 5, 0, 0.6);
+  --color-bamboo-darker: #5a2502;
+  --color-bamboo-lightest: #fceee6;
+  --color-bamboo: #e15d05;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -29,6 +36,7 @@
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -51,6 +59,14 @@ body {
   border: 0;
 }
 
+.hidden {
+  display: none;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
 .section-title {
   font-weight: 600;
   font-size: 36px;
@@ -59,8 +75,18 @@ body {
   letter-spacing: -0.01em;
 }
 
+.section-subtitle {
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
 @media only screen and (min-width: 1440px) {
   .section-title {
     font-size: 48px;
   }
+}
+
+.map-container {
+  display: none;
 }
