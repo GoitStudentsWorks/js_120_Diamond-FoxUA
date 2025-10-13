@@ -2,18 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.header-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.header-logo {
-  padding: 14px 0;
-}
-
-.logo-icon {
   padding: 14px 0;
 }
 
@@ -26,29 +14,37 @@
 }
 
 .header-nav-link:hover {
-  opacity: 0.2;
+  opacity: 0.5;
 }
 
-.menu-open-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-color: transparent;
-  border: none;
-  padding: 14px 5px 14px 0;
-
-  fill: var(--color-black);
-}
-
+.menu-open-btn,
 .menu-close-btn {
   background-color: transparent;
   border: none;
+  padding: 8px;
+  cursor: pointer;
 }
 
-/* .menu {
+/* ======================
+   МЕНЮ
+====================== */
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--background-color, #fff);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1000;
+
   opacity: 0;
-} */
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 300ms ease;
+}
 
 .menu.is-open {
   opacity: 1;
@@ -57,37 +53,48 @@
 }
 
 .menu-container {
-  position: relative;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  padding: 0 12px 0 20px;
-  opacity: 0;
+  height: 100%;
+  padding: 20px;
 }
 
 .menu-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 16px;
+  align-items: center;
 }
 
 .menu-nav {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
+  margin-top: 48px;
 }
 
-@media only screen and (min-width: 768px) {
-  .header-nav .menu-open-btn {
+.menu-nav-link {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-black, #000);
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .menu-open-btn {
     display: none;
   }
-  .header-nav-list {
-    font-size: 16px;
 
+  .header-nav-list {
     display: flex;
     gap: 32px;
   }
-  .header-nav-link {
-    padding: 14px 0;
+
+  .menu {
+    display: none;
   }
+}
+
+/* Disable scroll when menu open */
+body.no-scroll {
+  overflow: hidden;
 }
