@@ -221,12 +221,10 @@
   <div class="menu" data-menu hidden>
     <div class="menu-container">
       <div class="menu-header">
-        <a href="#top">
-          <img
-            class="logo-icon"
-            src="./img/icons/company-logo.svg"
-            alt="Booksy logo"
-          />
+        <a href="./index.html" class="logo">
+          <svg class="logo-icon" width="84" height="36">
+            <use href="./img/icons.svg#icon-book"></use>
+          </svg>
         </a>
         <button class="menu-close-btn" type="button" data-menu-close>
           <svg class="menu-close-icon" width="32" height="32">
@@ -236,6 +234,7 @@
       </div>
       <nav class="menu-nav">
         <ul class="menu-nav-list">
+          <li><a class="menu-nav-link" href="index.html">Home</a></li>
           <li><a class="menu-nav-link" href="#books">Books</a></li>
           <li><a class="menu-nav-link" href="#feedbacks">Feedbacks</a></li>
           <li><a class="menu-nav-link" href="#events">Events</a></li>
