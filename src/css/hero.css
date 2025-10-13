@@ -69,6 +69,12 @@
 }
 
 .swipe-btns {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+}
+
+.swipe-btns {
   display: flex;
   flex-direction: row;
   gap: 16px;
@@ -136,7 +142,6 @@
     .banner-img {
         width: 704px;
         height: 274px;
-        border-radius: 11px;
     }
 
     .banner-txt {
@@ -185,7 +190,6 @@
     .banner-img {
         width: 1312px;
         height: 395px;
-        border-radius: 16px;
     }
 
     .banner-txt {
@@ -211,20 +215,4 @@
         font-size: 52px;
         max-width: none;
     }
-}
-
-
-/* swiper settings */
-
-.hero-swiper-wrapper {
-    display: flex;
-}
-
-.hero-slide {
-    flex-shrink: 0;
-    width: 100%;
-}
-
-.hero-swiper {
-    overflow: hidden;
 }
