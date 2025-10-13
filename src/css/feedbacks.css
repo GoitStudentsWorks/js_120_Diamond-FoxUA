@@ -5,7 +5,219 @@
 .feedbacks-title {
   margin-bottom: 80px;
 }
-
-.feedbacks .section-title {
+.section-title {
   margin-bottom: 24px;
 }
+
+/* Content */
+.swiper {
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+/* Відгуки */
+.swiper-slide {
+  border: 1px solid var(--opacity-neutral-darkest-15);
+  border-radius: 16px;
+  padding: 32px 32px 102px 32px;
+}
+
+.feedback-text {
+  width: 277px;
+  padding: 0 0 24px 0;
+  margin: 0;
+}
+.avatar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.avatar-image {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+.avatar-content {
+  display: flex;
+  flex-direction: column;
+}
+.avatar-name {
+  font-weight: 600;
+  line-height: 120%;
+}
+.avatar-text {
+  font-size: 16px;
+}
+
+/* Кнопки навігації */
+.feedbacks-nav {
+  display: flex;
+  justify-content: space-between;
+  height: 48px;
+}
+.slider-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.feedbacks-controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.slider-dots { display:flex; align-items:center; gap:8px; }
+.dot { width:8px; height:8px; border-radius:50%; background: var(--opacity-neutral-darkest-15); }
+.dot--active { background: var(--color-black); }
+
+.btn-prev,
+.btn-next {
+  /* База для обох кнопок */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+
+  border: 1px solid var(--opacity-neutral-darkest-15);
+  background: var(--color-orange-btn); /* Normal bg */
+  color: #fff; /* іконка біла (currentColor) */
+
+  transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease,
+    transform 0.05s ease;
+  cursor: pointer;
+}
+/* hover/focus тільки коли кнопка активна */
+.btn-prev:not(:disabled):not(.is-disabled):hover,
+.btn-prev:not(:disabled):not(.is-disabled):focus-visible,
+.btn-next:not(:disabled):not(.is-disabled):hover,
+.btn-next:not(:disabled):not(.is-disabled):focus-visible {
+  background: var(--color-bamboo-lightest);
+  color: #0B0500;
+  outline: none;
+}
+
+/* Pressed (стан за макетом “Active” під час натискання) */
+.btn-prev:not(:disabled):not(.is-disabled):active,
+.btn-next:not(:disabled):not(.is-disabled):active {
+  background: var(--color-bamboo-darker);
+  color: #fff; /* іконка біла */
+  transform: translateY(0.5px); /* легкий “press” */
+}
+
+/* Inactive / Disabled (на краях або заборонено) */
+.btn-prev[disabled],
+.btn-next[disabled],
+.btn-prev.is-disabled,
+.btn-next.is-disabled {
+  background: var(--color-bamboo);
+  color: #0b0500; /* іконка чорна */
+  opacity: 0.2; /* як у макеті */
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Скидання стилів для svg, щоб брало currentColor */
+.btn-prev svg,
+.btn-next svg {
+  fill: currentColor;
+  width: 24px;
+  height: 24px;
+  display: block;
+  pointer-events: none;      /* Edge-фікс, щоб ховер йшов по кнопці */
+}
+
+/* MEDIA QUERIES */
+@media only screen and (min-width: 768px) {
+
+  .feedbacks {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+    .swiper-slide {
+    padding: 32px;;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .feedbacks {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .feedbacks-nav {
+    justify-content: right;
+  }
+  .feedback-text {
+    width: 357px;
+  }
+
+}
+/* 
+.feedbacks-swiper {
+  width: 100%;
+  height: 340px;
+}
+
+.feedbacks-swiper .swiper-slide {
+  padding: 32px;
+  border: 1px solid #0b050026;
+  border-radius: 16px;
+}
+
+.feedbacks-profile {
+  display: flex;
+  gap: 16px;
+}
+
+.feedbacks-swiper .username {
+  font-weight: 600;
+}
+.feedbacks-swiper .paragraph {
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.feedbacks-profile img {
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+}
+
+.feedbacks-swiper {
+  font-size: 16px;
+}
+
+/* Пагінація */
+
+/* Контейнер пагінації */
+/*.swiper-pagination {
+  position: absolute; /* Ensure absolute positioning */
+/*  bottom: 10px; /* Adjust the distance from the bottom */
+/*  left: 0; /* Adjust the distance from the left */
+/*  width: 100%; /* Ensure it spans the full width if needed */
+/*  text-align: center; /* Center the bullets horizontally */
+  /* You can also use 'top', 'right' for other positions */
+/* } */
+
+/* Звичайні крапочки */
+/*.feedbacks-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #aaa;
+  opacity: 0.7;
+  display: inline-block;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+*/
+/* Активна крапочка */
+/*.feedbacks-swiper .swiper-pagination-bullet-active {
+  background: #0b0500;
+  opacity: 1;
+}
+
+.feedbacks-swiper .swiper-button-next,
+.feedbacks-swiper .swiper-button-prev {
+  bottom: 0;
+  background-color: #e15d05;
+} */

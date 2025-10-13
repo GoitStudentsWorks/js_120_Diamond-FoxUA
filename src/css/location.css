@@ -1,0 +1,146 @@
+.location .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-and-contacts {
+  margin-bottom: 40px;
+}
+
+.locs {
+  font-weight: 600;
+font-size: 16px;
+text-transform: capitalize;
+margin-bottom: 16px;
+}
+.container-text {
+  margin-bottom: 32px;
+}
+.section-title-rew {
+font-size: 48px;
+margin-bottom: 24px;
+}
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-item {
+  display: flex;
+  gap: 16px;
+}
+
+.contact-label {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.icon {
+  stroke: var(--color-black);
+  width: 24px;
+  height: 24px;
+}
+
+.contact-link,
+.contact-text {
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+.map-container {
+  width: 343px;
+height: 395px;
+}
+
+.location{
+  padding: 64px 0;
+}
+.contact-link {
+  transition: opacity 300ms ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+  .text-and-contacts {
+     display: flex;          
+    align-items: flex-start; 
+    gap: 32px;  
+    align-items: center;
+    flex-direction: column;
+  }
+  .location .container {
+    display: flex;
+    align-items: flex-start;        
+    justify-content: space-between; 
+     flex-direction: column;           
+    gap: 80px;
+       }
+
+  .text {
+    font-weight: 600;
+font-size: 48px;
+line-height: 1.2;
+letter-spacing: -0.01em;
+color: #0b0500;
+  }
+
+  .text-list {
+    font-weight: 400;
+font-size: 18px;
+line-height: 1.5;
+color: #0b0500;
+  }
+
+  .map-container {
+     width: 704px;
+    height: 395px;
+    margin-top: 80px; 
+    align-self: flex-start;
+  }
+}
+
+
+
+
+@media screen and (min-width: 1440px) {
+   .text-and-contacts {
+  display: flex;
+align-items: flex-start;
+justify-content: flex-start;
+flex-direction: row;
+gap: 80px;
+ width: 1312px;
+height: 244px;
+  }
+  .location .container {
+    display: flex;
+    align-items: flex-start;        
+    justify-content: space-between; 
+     flex-direction: column;           
+    gap: 80px;
+       }
+
+  .text {
+    font-weight: 600;
+font-size: 48px;
+line-height: 1.2;
+letter-spacing: -0.01em;
+color: #0b0500;
+  }
+
+  .text-list {
+    font-weight: 400;
+font-size: 18px;
+line-height: 1.5;
+color: #0b0500;
+  }
+
+  .map-container {
+    width: 1312px;
+    height: 738px;
+    margin-top: 80px; 
+    align-self: flex-start;
+    
+  }
+}
+

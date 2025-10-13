@@ -1,5 +1,36 @@
 <section class="article">
-  <div class="container">
-    
+  <div class="container article-container">
+    <div class="article-text">
+      <h2 class="article-title">
+        Welcome to Booksy – your cozy corner for handpicked reads.
+      </h2>
+      <p class="article-paragraf">
+        We believe books are more than just stories — they’re companions,
+        doorways, and memories. Whether you’re chasing adventures or quiet
+        moments, we’re here to help you find your next favorite book.
+      </p>
+    </div>
+    <picture class="article-img">
+      <source
+        srcset="./img/article/article1x.jpg 1x, ./img/article/article2x.jpg 2x"
+        media="(min-width: 1440px)"
+      />
+      <source
+        srcset="
+          ./img/article/article-tab1x.jpg 1x,
+          ./img/article/article-tab2x.jpg 2x
+        "
+        media="(min-width:768px)"
+      />
+
+      <source
+        srcset="
+          ./img/article/article-mob1x.jpg 1x,
+          ./img/article/article-mob2x.jpg 2x
+        "
+        media="(max-width: 767px)"
+      />
+      <img src="./img/article/article1x.jpg" alt="man in the library" />
+    </picture>
   </div>
 </section>
