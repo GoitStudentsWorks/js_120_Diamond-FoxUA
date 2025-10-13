@@ -1,140 +1,139 @@
-.hero{
-    padding-bottom: 32px;
+.hero {
+  padding-bottom: 32px;
 }
 
 .hero-swiper {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-swiper-wrapper {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .hero-slide {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .banner-img {
-    width: 343px;
-    height: 199px;
-    border-radius: 8px;
+  width: 343px;
+  height: 199px;
+  border-radius: 8px;
 }
 
 .banner-txt {
-    position: absolute;
-    left: 16px;
-    bottom: 16px;
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
 }
 
 .banner-title {
-    font-size: 20px;
-    line-height: 1.4;
-    letter-spacing: -0.01em;
-    color: var(--color-white);
-    max-width: 172px;
-    margin-bottom: 16px;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--color-white);
+  max-width: 172px;
+  margin-bottom: 16px;
 }
 
 .long {
-    max-width: 228px;
+  max-width: 228px;
 }
 
 .banner-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-orange-btn);
-    border-radius: 2px;
-    width: 117px;
-    height: 20px;
-    font-size: 8px;
-    line-height: 1.5;
-    color: var(--color-white);
-    transition: background-color 250ms ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-orange-btn);
+  border-radius: 2px;
+  width: 117px;
+  height: 20px;
+  font-size: 8px;
+  line-height: 1.5;
+  color: var(--color-white);
+  transition: background-color 250ms ease-in-out;
 }
 
 .banner-btn:hover,
 .banner-btn:focus {
-    background-color: var(--color-black);
+  background-color: var(--color-black);
 }
 
 .banner-btn:active {
-    background-color: var(--color-hover-btn);
+  background-color: var(--color-hover-btn);
 }
 
 .swipe-btns {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    align-self: flex-end;
-    margin-bottom: 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-self: flex-end;
+  margin-bottom: 24px;
 }
 
 .swipe-btns button {
-    display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-        gap: 8px;
-        border: 1px solid rgba(11, 5, 0, 0.15);
-        padding: 12px;
-        width: 48px;
-        height: 48px;
-        background-color: var(--color-orange-btn);
-        transition: background-color 250ms ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 8px;
+  border: 1px solid rgba(11, 5, 0, 0.15);
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-orange-btn);
+  transition: background-color 250ms ease-in-out;
 }
 
 .swipe-btns button:hover {
-    background-color: var(--background-color);
+  background-color: var(--background-color);
 }
 
-
 .swipe-btns button:active {
-    background-color: var(--color-brown-active-btn);
+  background-color: var(--color-brown-active-btn);
 }
 
 .swipe-btns button:disabled {
-    background: rgba(225, 93, 5, 0.2);
+  background: rgba(225, 93, 5, 0.2);
 }
 
 .hero-arrow {
-    fill: var(--color-white);
-    transition: fill 250ms ease-in-out;
+  fill: black;
+  transition: fill 250ms ease-in-out;
 }
 
 .swipe-btns button:hover .hero-arrow {
-    fill: var(--color-black);
+  fill: var(--color-black);
 }
 
 .swipe-btns button:active .hero-arrow {
-    fill: var(--color-white);
+  fill: var(--color-white);
 }
 
 .swipe-btns button:disabled .hero-arrow {
-    fill: rgba(11, 5, 0, 0.2);
+  fill: rgba(11, 5, 0, 0.2);
 }
 
 .main-title {
-    max-width: 343px;
-    font-size: 40px;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+  max-width: 343px;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
 @media only screen and (min-width: 768px) {
-    .main-title {
-        max-width: 560px;
-    }
+  .main-title {
+    max-width: 560px;
+  }
 }
 
 @media only screen and (min-width: 1440px) {
-    .main-title {
-        max-width: 1168px;
-        font-size: 52px;
-    }
+  .main-title {
+    max-width: 1168px;
+    font-size: 52px;
+  }
 }
