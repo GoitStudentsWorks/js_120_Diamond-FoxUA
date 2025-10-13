@@ -1,20 +1,68 @@
-import Swiper from "swiper";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper/modules";
+document.addEventListener('DOMContentLoaded', () => {
+  const swiper = new Swiper('#feedbacks-slider', {
+    // мобільна база
+    slidesPerView: 1,
+    spaceBetween: 24,
+    grabCursor: true,
+    keyboard: { enabled: true, onlyInViewport: true },
+    a11y: { enabled: true },
+    watchOverflow: true,
 
-const swiper = new Swiper(".swiper-feedbacks", {
-  modules: [Navigation, Pagination],
-  slidesPerView: 1,        // кількість слайдів на екрані
-  spaceBetween: 24,        // відстань між ними
-  loop: false,              // безкінечний цикл
-  pagination: {
-    el: ".swiper-pagination-feedbacks",
-    clickable: true
-  },
-  navigation: {
-    nextEl: ".swiper-button-next-feedbacks",
-    prevEl: ".swiper-button-prev-feedbacks"
-  },
+    // кастомні кнопки
+    navigation: {
+      nextEl: '.btn-next',
+      prevEl: '.btn-prev',
+      disabledClass: 'is-disabled',
+      lockClass: 'is-locked'
+    },
+
+    // булети пагінації у твоєму контейнері
+    pagination: {
+      el: '.slider-dots',
+      clickable: true,
+      bulletClass: 'dot',
+      bulletActiveClass: 'dot--active'
+    },
+
+    // респонсів: планшет = 2, ПК = 3
+    breakpoints: {
+      768:  { slidesPerView: 2 },
+      1440: { slidesPerView: 3 }
+    }
+  });
+
+  // Синхронізуємо aria/disabled з класом is-disabled, який ставить Swiper
+  const prev = document.querySelector('.btn-prev');
+  const next = document.querySelector('.btn-next');
+
+  function syncNavAria() {
+    if (prev) {
+      const disabled = prev.classList.contains('is-disabled');
+      prev.toggleAttribute('disabled', disabled);
+      prev.setAttribute('aria-disabled', String(disabled));
+    }
+    if (next) {
+      const disabled = next.classList.contains('is-disabled');
+      next.toggleAttribute('disabled', disabled);
+      next.setAttribute('aria-disabled', String(disabled));
+    }
+  }
+
+  // Події Swiper
+  swiper.on('init', syncNavAria);
+  swiper.on('slideChange', syncNavAria);
+  swiper.on('reachBeginning', syncNavAria);
+  swiper.on('reachEnd', syncNavAria);
+  swiper.on('fromEdge', syncNavAria);
+
+  // первинний виклик (init стріляє автоматично, але дублювання не завадить)
+  syncNavAria();
+
+  // Додаткові стрілки з клавіатури, коли фокус на кнопці
+  function onKeyNav(e) {
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev?.click(); }
+    if (e.key === 'ArrowRight'){ e.preventDefault(); next?.click(); }
+  }
+  prev?.addEventListener('keydown', onKeyNav);
+  next?.addEventListener('keydown', onKeyNav);
 });
