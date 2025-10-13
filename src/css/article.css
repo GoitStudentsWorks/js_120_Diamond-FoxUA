@@ -2,6 +2,11 @@
 .article {
   padding: 64px 0px;
 }
+
+.article-text {
+  margin-bottom: 32px;
+}
+
 .article-title {
   font-weight: 600;
   font-size: 36px;

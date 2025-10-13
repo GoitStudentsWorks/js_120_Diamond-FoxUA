@@ -1,9 +1,21 @@
+.section {
+  padding: 32px 0;
+}
+
 .section-name {
   margin-bottom: 15px;
 }
 
 .events-text {
   margin-bottom: 32px;
+}
+
+.swiper-slide {
+  border: none;
+}
+
+.swiper {
+  padding-bottom: 0;
 }
 
 .events-image img {
@@ -41,6 +53,10 @@
   font-size: 16px;
 }
 
+.article-text {
+  margin-bottom: 32px;
+}
+
 .event-location::after {
   content: '';
   display: inline-block;
@@ -74,7 +90,7 @@
 .events-controls-wrapper {
   position: relative;
   height: 48px;
-  margin-top: 56px;
+  /* margin-top: 56px; */
   text-align: center;
   display: flex;
   justify-content: space-between;
