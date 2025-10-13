@@ -3,12 +3,12 @@
 }
 
 .hero-swiper {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-swiper-wrapper {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .hero-slide {
@@ -16,28 +16,28 @@
 }
 
 .banner-img {
-    width: 343px;
-    height: 199px;
-    border-radius: 8px;
+  width: 343px;
+  height: 199px;
+  border-radius: 8px;
 }
 
 .banner-txt {
-    position: absolute;
-    left: 16px;
-    bottom: 16px;
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
 }
 
 .banner-title {
-    font-size: 20px;
-    line-height: 1.4;
-    letter-spacing: -0.01em;
-    color: var(--color-white);
-    max-width: 172px;
-    margin-bottom: 16px;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--color-white);
+  max-width: 172px;
+  margin-bottom: 16px;
 }
 
 .long {
-    max-width: 228px;
+  max-width: 228px;
 }
 
 .banner-btn {
@@ -53,12 +53,13 @@
     transition: background-color 250ms ease-in-out;
 }
 
-.banner-btn:hover {
-    background-color: var(--color-black);
+.banner-btn:hover,
+.banner-btn:focus {
+  background-color: var(--color-black);
 }
 
 .banner-btn:active {
-    background-color: var(--color-hover-btn);
+  background-color: var(--color-hover-btn);
 }
 
 .under-banner {
@@ -68,11 +69,11 @@
 }
 
 .swipe-btns {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    align-self: flex-end;
-    margin-bottom: 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-self: flex-end;
+  margin-bottom: 24px;
 }
 
 .swipe-btns button {
@@ -90,29 +91,32 @@
 }
 
 .swipe-btns button:hover {
-    background-color: var(--background-color);
+  background-color: var(--background-color);
 }
 
-
 .swipe-btns button:active {
-    background-color: var(--color-brown-active-btn);
+  background-color: var(--color-brown-active-btn);
 }
 
 .swipe-btns button:disabled {
-    background: rgba(225, 93, 5, 0.2);
+  background: rgba(225, 93, 5, 0.2);
 }
 
 .hero-arrow {
-    fill: var(--color-black);
-    transition: fill 250ms ease-in-out;
+  fill: black;
+  transition: fill 250ms ease-in-out;
+}
+
+.swipe-btns button:hover .hero-arrow {
+  fill: var(--color-black);
 }
 
 .swipe-btns button:active .hero-arrow {
-    fill: var(--color-white);
+  fill: var(--color-white);
 }
 
 .swipe-btns button:disabled .hero-arrow {
-    fill: rgba(11, 5, 0, 0.2);
+  fill: rgba(11, 5, 0, 0.2);
 }
 
 .main-title {
