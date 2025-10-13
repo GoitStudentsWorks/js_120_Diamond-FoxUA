@@ -6,6 +6,8 @@ body.no-scroll {
 
 /* Backdrop */
 .backdrop {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   inset: 0;
   background-color: var(--opacity-neutral-darkest-25);
