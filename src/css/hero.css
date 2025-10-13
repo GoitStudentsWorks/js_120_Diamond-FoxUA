@@ -53,8 +53,7 @@
     transition: background-color 250ms ease-in-out;
 }
 
-.banner-btn:hover,
-.banner-btn:focus {
+.banner-btn:hover {
     background-color: var(--color-black);
 }
 
@@ -104,12 +103,8 @@
 }
 
 .hero-arrow {
-    fill: var(--color-white);
-    transition: fill 250ms ease-in-out;
-}
-
-.swipe-btns button:hover .hero-arrow {
     fill: var(--color-black);
+    transition: fill 250ms ease-in-out;
 }
 
 .swipe-btns button:active .hero-arrow {
@@ -137,6 +132,7 @@
     .banner-img {
         width: 704px;
         height: 274px;
+        border-radius: 11px;
     }
 
     .banner-txt {
@@ -185,6 +181,7 @@
     .banner-img {
         width: 1312px;
         height: 395px;
+        border-radius: 16px;
     }
 
     .banner-txt {
@@ -210,4 +207,20 @@
         font-size: 52px;
         max-width: none;
     }
+}
+
+
+/* swiper settings */
+
+.hero-swiper-wrapper {
+    display: flex;
+}
+
+.hero-slide {
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.hero-swiper {
+    overflow: hidden;
 }
