@@ -1,5 +1,5 @@
 const swiper = new Swiper('.hero-swiper', {
-  loop: false,
+  loop: true,
   speed: 400,
   slidesPerView: 1,
   wrapperClass: 'hero-swiper-wrapper',
@@ -7,5 +7,8 @@ const swiper = new Swiper('.hero-swiper', {
   navigation: {
     nextEl: '.hero-right-btn',
     prevEl: '.hero-left-btn',
+  },
+  autoplay: {
+    delay: 5000,
   },
 });
