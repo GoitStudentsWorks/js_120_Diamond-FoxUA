@@ -4,10 +4,13 @@
   align-items: center;
 }
 
+.header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .header-logo {
   padding: 14px 0;
-  font-size: 16px;
-  font-weight: 700;
 }
 
 .logo-icon {
@@ -38,14 +41,14 @@
   fill: var(--color-black);
 }
 
-.close-menu-btn {
+.menu-close-btn {
   background-color: transparent;
   border: none;
 }
 
-.menu {
+/* .menu {
   opacity: 0;
-}
+} */
 
 .menu.is-open {
   opacity: 1;
@@ -59,6 +62,7 @@
   flex-direction: column;
   height: 100vh;
   padding: 0 12px 0 20px;
+  opacity: 0;
 }
 
 .menu-header {
