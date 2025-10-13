@@ -33,6 +33,7 @@
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -57,6 +58,10 @@ body {
 
 .hidden {
   display: none;
+}
+
+body.menu-open {
+  overflow: hidden;
 }
 
 .section-title {
