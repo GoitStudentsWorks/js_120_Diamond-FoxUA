@@ -14,9 +14,10 @@
 }
 
 .logo-icon {
+  fill: #010101;
   display: block;
+  width: 84px;
   height: 36px;
-  width: auto;
 }
 
 .header-nav-list {
