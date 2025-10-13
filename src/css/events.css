@@ -48,6 +48,7 @@
 .article-text {
   margin-bottom: 32px;
 }
+
 .event-location::after {
   content: '';
   display: inline-block;
