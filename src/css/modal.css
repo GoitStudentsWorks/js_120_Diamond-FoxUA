@@ -6,8 +6,6 @@ body.no-scroll {
 
 /* Backdrop */
 .backdrop {
-  display: flex;
-  flex-direction: column;
   position: fixed;
   inset: 0;
   background-color: var(--opacity-neutral-darkest-25);
@@ -27,6 +25,8 @@ body.no-scroll {
 
 /* Modal */
 .modal {
+  display: flex;
+  flex-direction: column;
   background-color: #fceee6;
   border-radius: 16px;
   width: 100%;
