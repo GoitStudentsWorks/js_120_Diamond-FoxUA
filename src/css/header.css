@@ -68,6 +68,10 @@
   overflow-y: auto;
 }
 
+.menu .logo {
+  padding: 14px 0;
+}
+
 .menu.is-open {
   opacity: 1;
   visibility: visible;
@@ -86,7 +90,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 20px;
+  padding: 0 20px;
 }
 
 .menu-header {
