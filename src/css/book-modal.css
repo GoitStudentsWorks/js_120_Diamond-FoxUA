@@ -1,0 +1,294 @@
+/* ===== BASE (Mobile First, від 320px) ===== */
+
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(17, 17, 17, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 16px;
+    z-index: 1000;
+    overflow-y: auto;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.backdrop.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    animation: fadeIn 0.3s ease;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.modal {
+    background: #fceee6;
+    border-radius: 16px;
+    padding: 64px 16px;
+    width: 100%;
+    max-width: 320px;
+    position: relative;
+    animation: scaleIn 0.3s ease;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-btn svg {
+    fill: #0b0500;
+    transition: transform 0.2s ease;
+}
+
+.close-btn:hover svg,
+.close-btn:focus svg {
+    transform: scale(1.15);
+}
+
+.book-image {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.book-title {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #0b0500;
+    margin-bottom: 8px;
+}
+
+.book-author {
+    font-size: 14px;
+    color: #0b0500;
+    margin-bottom: 8px;
+}
+
+.book-price {
+    font-size: 24px;
+    line-height: 140%;
+    letter-spacing: -0.01em;
+    color: #0b0500;
+    margin-bottom: 24px;
+}
+
+.quantity-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.quantity-form button {
+    background-color: transparent;
+    border: 1px solid #0b0500;
+    border-radius: 4px;
+    padding: 8px 20px;
+    width: 32px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #0b0500;
+    transition: background-color 0.2s ease;
+}
+
+.quantity-form button:hover {
+    background-color: #dad9d8;
+}
+
+.quantity-form input {
+    width: 42px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid rgba(11, 5, 0, 0.15);
+    border-radius: 6px;
+    padding: 8px 12px;
+    background-color: rgba(11, 5, 0, 0.05);
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.buttons button {
+    padding: 12px 24px;
+    border-radius: 4px;
+    width: 100%;
+    height: 48px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.addToCart {
+    border: 1px solid #e15d05;
+    background-color: #e15d05;
+    color: #fff;
+}
+
+.addToCart:hover,
+.addToCart:focus {
+    border-color: #0b0500;
+    background-color: #ea8d50;
+    color: #0b0500;
+}
+
+.addToCart:active {
+    border-color: #b44a04;
+    background-color: #b44a04;
+    color: #fff;
+}
+
+.buyNow {
+    border: 1px solid #0b0500;
+    background-color: transparent;
+    color: #0b0500;
+}
+
+.buyNow:hover,
+.buyNow:focus {
+    background-color: #0b0500;
+    color: #fff;
+}
+
+.buyNow:active {
+    background-color: #dad9d8;
+}
+
+/* Accordion */
+.accordion {
+    border-bottom: 1px solid rgba(11, 5, 0, 0.15);
+}
+
+.accordion-item {
+    border-top: 1px solid rgba(11, 5, 0, 0.15);
+}
+
+.accordion-header {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.accordion-header:hover,
+.accordion-header:focus {
+    transform: scale(1.03);
+}
+
+.accordion-icon {
+    width: 14px;
+    height: 8px;
+    fill: #0b0500;
+}
+
+.accordion-body {
+    padding: 0 0 24px;
+    font-size: 16px;
+    color: #0b0500;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes scaleIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ====== from 375px (гумова) ====== */
+@media (min-width: 375px) {
+    .modal {
+        max-width: 343px;
+    }
+}
+
+/* ====== from 768px (tablet) ====== */
+@media (min-width: 768px) {
+    .modal {
+        max-width: 704px;
+        padding: 64px 32px;
+    }
+
+    .modal-body {
+        flex-direction: row;
+    }
+
+    .book-image {
+        width: 45%;
+        max-height: 467px;
+    }
+}
+
+/* ====== from 1440px (desktop) ====== */
+@media (min-width: 1440px) {
+    .modal {
+        max-width: 1300px;
+        padding: 64px;
+    }
+
+    .buttons {
+        flex-direction: row;
+        gap: 24px;
+    }
+
+    .buttons button {
+        flex: 1;
+        width: auto;
+    }
+}
