@@ -189,6 +189,7 @@ function toggleCategory() {
   }
 }
 
+// ====REDO======
 async function handleCategoryClick(event) {
   event.preventDefault();
 
