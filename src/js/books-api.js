@@ -279,15 +279,18 @@ async function initializeApp() {
   });
 }
 
-//--- Scrollbar---
+// --- Scrollbar ---
+
 const categoryList = refs.categoryListElement;
 const categoryThumb = document.querySelector(
   '.books-categories-scrollbar-thumb'
 );
 
 function updateCategoryThumb() {
-  const thumbHeight = 47;
-  const { scrollTop, clientHeight, scrollHeight } = categoryList;
+  const { scrollTop, scrollHeight, clientHeight } = categoryList;
+
+  const ratio = clientHeight / scrollHeight;
+  const thumbHeight = Math.max(ratio * clientHeight, 24);
   const maxTop = clientHeight - thumbHeight;
   const top = (scrollTop / (scrollHeight - clientHeight)) * maxTop || 0;
 
@@ -315,20 +318,13 @@ document.addEventListener('mousemove', e => {
 
   const { scrollHeight, clientHeight } = categoryList;
   const maxScroll = scrollHeight - clientHeight;
-
   const thumbHeight = categoryThumb.offsetHeight;
   const maxThumbTop = clientHeight - thumbHeight;
 
   const deltaY = e.clientY - startY;
+  const scrollDelta = (deltaY / maxThumbTop) * maxScroll;
 
-  const sensitivity = 0.5;
-  const scrollDelta = (deltaY / maxThumbTop) * maxScroll * sensitivity;
-
-  categoryList.scrollTop = Math.min(
-    Math.max(startScrollTop + scrollDelta, 0),
-    maxScroll
-  );
-
+  categoryList.scrollTop = startScrollTop + scrollDelta;
   updateCategoryThumb();
 });
 

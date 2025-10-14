@@ -8,18 +8,18 @@
 }
 
 .locs {
-  font-weight: 600;
-  font-size: 16px;
-  text-transform: capitalize;
   margin-bottom: 16px;
 }
+
 .container-text {
   margin-bottom: 32px;
 }
+
 .section-title-rew {
   font-size: 48px;
   margin-bottom: 24px;
 }
+
 .contact-list {
   display: flex;
   flex-direction: column;
@@ -42,10 +42,12 @@
   height: 24px;
 }
 
-.contact-link,
-.contact-text {
+.contact-link {
   font-size: 16px;
   text-decoration: underline;
+}
+.contact-text {
+  font-size: 16px;
 }
 
 .map-container {
@@ -62,6 +64,7 @@
 .location {
   padding: 64px 0;
 }
+
 .contact-link {
   transition: opacity 300ms ease-in-out;
 }
@@ -69,10 +72,8 @@
 @media screen and (min-width: 768px) {
   .text-and-contacts {
     display: flex;
-    align-items: flex-start;
+    flex-direction: row;
     gap: 32px;
-    align-items: center;
-    flex-direction: column;
     margin-bottom: 80px;
   }
 
@@ -81,6 +82,10 @@
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: column;
+  }
+
+  .location-text {
+    width: 336px;
   }
 
   .text {
@@ -112,8 +117,18 @@
     justify-content: flex-start;
     flex-direction: row;
     gap: 80px;
-    width: 1312px;
-    height: 244px;
+  }
+
+  .container-text {
+    width: 100%;
+  }
+
+  .location-text {
+    width: 732px;
+  }
+
+  .contact-list {
+    width: 100%;
   }
 
   .location .container {
