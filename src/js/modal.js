@@ -10,7 +10,7 @@ eventButtons.forEach((btn) => {
   btn.addEventListener("click", () => openModal(btn.dataset.event));
 });
 
-function openModal(eventName) {
+export function openModal(eventName) {
   const modalMarkup = `
     <div class="modal">
       <button type="button" class="modal-close" aria-label="Close modal">
