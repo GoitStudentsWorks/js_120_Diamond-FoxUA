@@ -210,23 +210,17 @@ async function handleCategoryClick(event) {
 
 async function handleLearnMoreClick(event) {
   const learnMoreBtn = event.target.closest('.learn-more-btn');
-  if (!learnMoreBtn) return;
+  if (learnMoreBtn) {
+    const bookId = learnMoreBtn.dataset.bookId;
 
-  const bookId = learnMoreBtn.dataset.bookId;
-
-  if (bookId) {
-    try {
-      await openBookModal(bookId);
-    } catch (error) {
-      iziToast.error({
-        title: 'Error',
-        message: 'Failed to load book details. Please try again later.',
-        position: 'topRight',
-        timeout: 2500,
-      });
-      console.error('Failed to open book modal:', error);
-    } finally {
-      learnMoreBtn.disabled = false;
+    if (bookId) {
+      try {
+        const bookDetails = await serviceBookDetails(bookId);
+        openBookModal(bookDetails);
+      } catch (error) {
+        alert('Failed to load book details. Please try again later.');
+        console.error('Failed to show book details:', error);
+      }
     }
   }
 }

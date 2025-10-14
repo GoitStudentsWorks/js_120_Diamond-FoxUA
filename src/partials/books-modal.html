@@ -1,0 +1,187 @@
+<div class="book-modal-backdrop" data-book-modal-backdrop>
+  <div class="book-modal" data-book-modal>
+    <button class="book-modal-close-btn" type="button" data-book-modal-close>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-x-icon lucide-x"
+      >
+        <path d="M18 6 6 18" />
+        <path d="m6 6 12 12" />
+      </svg>
+    </button>
+
+    <div class="book-modal-content">
+      <div class="book-modal-image-wrapper">
+        <img class="book-modal-image" src="" alt="Book cover" data-book-image />
+      </div>
+
+      <div class="book-modal-info">
+        <h2 class="book-modal-title" data-book-title>I will find you</h2>
+        <p class="book-modal-author" data-book-author>Author Name</p>
+        <p class="book-modal-price" data-book-price>$19.99</p>
+
+        <form class="book-modal-form" data-book-form>
+          <div class="book-quantity-wrapper">
+            <button
+              class="book-quantity-btn"
+              type="button"
+              data-quantity-decrease
+              aria-label="Decrease quantity"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-minus-icon lucide-minus"
+              >
+                <path d="M5 12h14" />
+              </svg>
+            </button>
+            <input
+              class="book-quantity-input"
+              type="number"
+              id="book-quantity"
+              name="quantity"
+              min="1"
+              max="99"
+              value="1"
+              data-book-quantity
+              readonly
+            />
+            <button
+              class="book-quantity-btn"
+              type="button"
+              data-quantity-increase
+              aria-label="Increase quantity"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-plus-icon lucide-plus"
+              >
+                <path d="M5 12h14" />
+                <path d="M12 5v14" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="book-modal-buttons">
+            <button
+              class="book-modal-btn book-buy-now-btn"
+              type="button"
+              data-add-to-cart
+            >
+              Add To Cart
+            </button>
+            <button
+              class="book-modal-btn book-add-to-cart-btn"
+              type="submit"
+              data-buy-now
+            >
+              Buy Now
+            </button>
+          </div>
+        </form>
+
+        <div class="book-accordion">
+          <div class="accordion-item">
+            <button class="accordion-button" type="button">
+              <span class="accordion-title">Details</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chevron-down-icon lucide-chevron-down"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <p class="accordion-text" data-details-content>
+                Book details will be displayed here
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-button" type="button">
+              <span class="accordion-title">Shipping</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chevron-down-icon lucide-chevron-down"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <p class="accordion-text" data-shipping-content>
+                Standard shipping: 5-7 business days. Express shipping
+                available.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-button" type="button">
+              <span class="accordion-title">Returns</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chevron-down-icon lucide-chevron-down"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <p class="accordion-text" data-returns-content>
+                30-day return policy. Books must be in original condition.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
