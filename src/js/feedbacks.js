@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       nextEl: '.btn-next',
       prevEl: '.btn-prev',
       disabledClass: 'is-disabled',
-      lockClass: 'is-locked'
+      lockClass: 'is-locked',
     },
 
     // булети пагінації у твоєму контейнері
@@ -21,14 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
       el: '.slider-dots',
       clickable: true,
       bulletClass: 'dot',
-      bulletActiveClass: 'dot--active'
+      bulletActiveClass: 'dot--active',
     },
 
     // респонсів: планшет = 2, ПК = 3
     breakpoints: {
-      768:  { slidesPerView: 2 },
-      1440: { slidesPerView: 3 }
-    }
+      768: { slidesPerView: 2 },
+      1440: { slidesPerView: 3 },
+    },
   });
 
   // Синхронізуємо aria/disabled з класом is-disabled, який ставить Swiper
@@ -60,9 +60,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Додаткові стрілки з клавіатури, коли фокус на кнопці
   function onKeyNav(e) {
-    if (e.key === 'ArrowLeft') { e.preventDefault(); prev?.click(); }
-    if (e.key === 'ArrowRight'){ e.preventDefault(); next?.click(); }
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      prev?.click();
+    }
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      next?.click();
+    }
   }
   prev?.addEventListener('keydown', onKeyNav);
   next?.addEventListener('keydown', onKeyNav);
 });
+
+// import Swiper from 'swiper';
+// import { Navigation, Pagination, Keyboard } from 'swiper/modules';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
+
+// // Ініціалізація слайдера
+// const swiperFeedbacks = new Swiper('.feedbacks-swiper', {
+//   modules: [Navigation, Pagination, Keyboard],
+//   slidesPerView: 1,       // один слайд на екрані
+//   spaceBetween: 24,       // відстань між слайдами
+//   loop: false,
+
+//   pagination: {
+//     el: '.swiper-pagination',
+//     clickable: true
+//   },
+//   navigation: {
+//     nextEl: '.swiper-button-next',
+//     prevEl: '.swiper-button-prev'
+//   },
+//   keyboard: {
+//     enabled: true,
+//     onlyInViewport: true
+//   }
+// });
+
+// const userFeedbacks = [
+//   {
+//     avatar:
+//       './img/feedbacks-images/profile.pic.jpg',
+//     username:
+//       'Jane Doe',
+//     userInfo: 'Book Lover, Reader',
+//     message: 'Great selection, fast delivery, and beautifully packaged books. My go-to store for weekend reads!'
+//   },
+// ];
