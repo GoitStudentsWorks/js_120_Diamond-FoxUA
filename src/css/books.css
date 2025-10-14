@@ -110,10 +110,17 @@
   cursor: pointer;
   top: 20px;
   right: -1px;
+  transition: top 100ms linear;
+  cursor: grab;
 }
 
 .books-categories-scrollbar-thumb:hover {
   background: var(--color-hover-btn);
+}
+
+.books-categories-scrollbar-thumb:active {
+  cursor: grabbing;
+  transition: none;
 }
 
 .books-categories-list-link {
@@ -130,10 +137,6 @@
 
 .books-categories-list-link:hover {
   opacity: 0.8;
-}
-
-.books-categories-list-link:disabled {
-  opacity: 0.2;
 }
 
 ul li:first-child .books-categories-list-link {
