@@ -1,14 +1,16 @@
-import Accordion from "accordion-js";
-import "accordion-js/dist/accordion.min.css";
-import iziToast from "izitoast";
-import "izitoast/dist/css/iziToast.min.css";
+import Accordion from 'accordion-js';
+import 'accordion-js/dist/accordion.min.css';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
-const backdrop = document.querySelector("#modal-backdrop");
+const backdrop = document.querySelector('#modal-backdrop');
 const body = document.body;
 
 export async function openBookModal(bookId) {
   try {
-    const res = await fetch(`https://books-backend.p.goit.global/books/${bookId}`);
+    const res = await fetch(
+      `https://books-backend.p.goit.global/books/${bookId}`
+    );
     const book = await res.json();
 
     const modalMarkup = `
@@ -19,7 +21,9 @@ export async function openBookModal(bookId) {
           </svg>
         </button>
 
-        <img src="${book.book_image || ''}" alt="${book.title}" class="book-image"/>
+        <img src="${book.book_image || ''}" alt="${
+      book.title
+    }" class="book-image"/>
         <h2 class="book-title">${book.title || 'No title'}</h2>
         <p class="book-author">${book.author || 'Unknown author'}</p>
         <p class="book-price">${book.price ? `$${book.price}` : 'N/A'}</p>
@@ -43,7 +47,9 @@ export async function openBookModal(bookId) {
                 <use href="./src/img/icons-modal.svg#icon-down"></use>
               </svg>
             </button>
-            <div class="accordion-body">${book.details || 'No details available'}</div>
+            <div class="accordion-body">${
+              book.details || 'No details available'
+            }</div>
           </div>
 
           <div class="accordion-item">
@@ -53,7 +59,9 @@ export async function openBookModal(bookId) {
                 <use href="./src/img/icons-modal.svg#icon-down"></use>
               </svg>
             </button>
-            <div class="accordion-body">${book.shipping || 'No shipping info available'}</div>
+            <div class="accordion-body">${
+              book.shipping || 'No shipping info available'
+            }</div>
           </div>
 
           <div class="accordion-item">
@@ -63,30 +71,31 @@ export async function openBookModal(bookId) {
                 <use href="./src/img/icons-modal.svg#icon-down"></use>
               </svg>
             </button>
-            <div class="accordion-body">${book.returns || 'No return policy available'}</div>
+            <div class="accordion-body">${
+              book.returns || 'No return policy available'
+            }</div>
           </div>
         </div>
       </div>
     `;
 
     backdrop.innerHTML = modalMarkup;
-    backdrop.classList.add("is-open");
-    body.classList.add("no-scroll");
+    backdrop.classList.add('is-open');
+    body.classList.add('no-scroll');
 
-    const modal = backdrop.querySelector(".modal");
-    const closeBtn = modal.querySelector(".modal-close");
+    const modal = backdrop.querySelector('.modal');
+    const closeBtn = modal.querySelector('.modal-close');
 
-    closeBtn.addEventListener("click", closeModal);
-    backdrop.addEventListener("click", onBackdropClick);
-    window.addEventListener("keydown", onEscKey);
-
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', onBackdropClick);
+    window.addEventListener('keydown', onEscKey);
 
     function closeModal() {
-      backdrop.classList.remove("is-open");
-      body.classList.remove("no-scroll");
-      backdrop.innerHTML = "";
-      window.removeEventListener("keydown", onEscKey);
-      backdrop.removeEventListener("click", onBackdropClick);
+      backdrop.classList.remove('is-open');
+      body.classList.remove('no-scroll');
+      backdrop.innerHTML = '';
+      window.removeEventListener('keydown', onEscKey);
+      backdrop.removeEventListener('click', onBackdropClick);
     }
 
     function onBackdropClick(e) {
@@ -94,36 +103,34 @@ export async function openBookModal(bookId) {
     }
 
     function onEscKey(e) {
-      if (e.key === "Escape") closeModal();
+      if (e.key === 'Escape') closeModal();
     }
 
-
-    const qtyInput = modal.querySelector(".bookQty");
-    modal.querySelector(".increaseQty").addEventListener("click", () => {
+    const qtyInput = modal.querySelector('.bookQty');
+    modal.querySelector('.increaseQty').addEventListener('click', () => {
       qtyInput.value = parseInt(qtyInput.value) + 1;
     });
-    modal.querySelector(".decreaseQty").addEventListener("click", () => {
-      if (parseInt(qtyInput.value) > 1) qtyInput.value = parseInt(qtyInput.value) - 1;
+    modal.querySelector('.decreaseQty').addEventListener('click', () => {
+      if (parseInt(qtyInput.value) > 1)
+        qtyInput.value = parseInt(qtyInput.value) - 1;
     });
 
-
-    modal.querySelector(".addToCart").addEventListener("click", () => {
+    modal.querySelector('.addToCart').addEventListener('click', () => {
       console.log(`Додано до кошика: ${qtyInput.value} шт.`);
       iziToast.success({
-        title: "Успіх",
+        title: 'Успіх',
         message: `Додано до кошика: ${qtyInput.value} шт.`,
-        position: "topRight",
+        position: 'topRight',
         timeout: 2500,
       });
     });
 
-
-    modal.querySelector(".buyNow").addEventListener("click", (e) => {
+    modal.querySelector('.buyNow').addEventListener('click', e => {
       e.preventDefault();
       iziToast.info({
-        title: "Покупка",
-        message: "Дякуємо за покупку",
-        position: "topRight",
+        title: 'Покупка',
+        message: 'Дякуємо за покупку',
+        position: 'topRight',
         timeout: 2500,
       });
       setTimeout(() => {
@@ -131,34 +138,31 @@ export async function openBookModal(bookId) {
       }, 2500);
     });
 
-
-    new Accordion(modal.querySelector(".accordion"), {
+    new Accordion(modal.querySelector('.accordion'), {
       duration: 300,
       showMultiple: false,
     });
 
-    modal.querySelector(".accordion").addEventListener("click", (e) => {
-      const header = e.target.closest(".accordion-header");
+    modal.querySelector('.accordion').addEventListener('click', e => {
+      const header = e.target.closest('.accordion-header');
       if (!header) return;
-      const iconUse = header.querySelector(".accordion-icon use");
+      const iconUse = header.querySelector('.accordion-icon use');
       const body = header.nextElementSibling;
       setTimeout(() => {
         if (body && body.offsetHeight > 0) {
-          iconUse.setAttribute("href", "./src/img/icons-modal.svg#icon-above");
+          iconUse.setAttribute('href', './src/img/icons-modal.svg#icon-above');
         } else {
-          iconUse.setAttribute("href", "./src/img/icons-modal.svg#icon-down");
+          iconUse.setAttribute('href', './src/img/icons-modal.svg#icon-down');
         }
       }, 310);
     });
-
   } catch (err) {
-    console.error("Error fetching book:", err);
+    console.error('Error fetching book:', err);
     iziToast.error({
-      title: "Помилка",
-      message: "Не вдалося завантажити книгу",
-      position: "topRight",
+      title: 'Помилка',
+      message: 'Не вдалося завантажити книгу',
+      position: 'topRight',
       timeout: 2500,
     });
   }
 }
-
