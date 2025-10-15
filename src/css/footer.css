@@ -10,17 +10,12 @@
   margin-bottom: 80px;
 }
 .footer-logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 84px;
-  height: 36px;
   margin: 0 auto 32px;
 }
-.footer-logo-img {
+/* .footer-logo-img {
   width: 83px;
   height: 21px;
-}
+} */
 .footer-menu {
   display: flex;
   flex-direction: column;
@@ -106,7 +101,7 @@
   caret-color: var(--color-error-message);
   height: 26px;
   padding: 4px 12px;
-  box-shadow: 0 0 0 3px rgba(229,57,53,.12);
+  box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.12);
 }
 .join-form .input-wrap.validated .join-input:invalid::placeholder {
   color: var(--color-error-message);
@@ -131,7 +126,7 @@
   caret-color: var(--color-error-message);
   height: 26px;
   padding: 4px 12px;
-  box-shadow: 0 0 0 3px rgba(229,57,53,.12);
+  box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.12);
 }
 .input-wrap.validated .join-input:invalid::placeholder {
   color: var(--color-error-message);
@@ -157,7 +152,8 @@
   color: var(--color-error-message);
 }
 .join-input {
-  transition: border-color 300ms ease-in-out, height 0.15s ease, padding 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+  transition: border-color 300ms ease-in-out, height 0.15s ease,
+    padding 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
 }
 .input-wrap.show-error .join-input {
   height: 26px;
@@ -186,8 +182,12 @@
   text-align: center;
 }
 @media (prefers-reduced-motion: reduce) {
-  .join-input { transition: none; }
-  .join-btn   { transition: none; }
+  .join-input {
+    transition: none;
+  }
+  .join-btn {
+    transition: none;
+  }
 }
 @media only screen and (min-width: 768px) {
   .footer {
@@ -205,7 +205,7 @@
   }
   .input-wrap {
     max-width: 278px;
-    }
+  }
   .divider {
     width: 640px;
   }
