@@ -85,10 +85,6 @@
     display: none;
   }
 
-  .menu {
-    display: none;
-  }
-
   .header-logo {
     height: 72px;
     padding: 16px 0;
@@ -104,12 +100,8 @@
   .header-nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
-  }
-
-  .logo-icon {
-    width: 104px;
-    height: 39px;
   }
 
   .header-nav-list {
@@ -161,11 +153,6 @@
   margin-bottom: 16px;
 }
 
-.menu-close-btn:hover .menu-close-icon,
-.menu-close-btn:focus .menu-close-icon {
-  opacity: 0.5;
-}
-
 .menu-nav {
   margin-bottom: auto;
 }
@@ -179,12 +166,16 @@
 
 /* ------------------ Tablet/Desktop Mobile Menu ------------------ */
 @media screen and (min-width: 768px) {
-  .menu-container {
+  /* .menu-container {
     padding: 96px 32px 128px;
+  } */
+
+  .menu {
+    display: none;
   }
 
-  .menu-header {
+  /* .menu-header {
     right: 16px;
     left: 32px;
-  }
+  } */
 }

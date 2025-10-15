@@ -157,7 +157,7 @@ async function renderBooks() {
 }
 
 function displayBooksPortion(limit = getBooksLimit()) {
-  const startIndex = currentPage * limit;
+  const startIndex = currentBooksDisplayed;
   const endIndex = Math.min(startIndex + limit, currentTotalBooks.length);
   const booksToDisplay = currentTotalBooks.slice(startIndex, endIndex);
 
@@ -167,10 +167,7 @@ function displayBooksPortion(limit = getBooksLimit()) {
   );
 
   currentBooksDisplayed = endIndex;
-
   refs.booksShowingCount.textContent = `Showing ${currentBooksDisplayed} of ${currentTotalBooks.length}`;
-
-  currentPage++;
 
   if (currentBooksDisplayed < currentTotalBooks.length) {
     refs.showMoreBtn.classList.remove('show-more-hidden');
