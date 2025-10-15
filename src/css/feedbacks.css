@@ -23,8 +23,7 @@
 
 .feedback-text {
   width: 277px;
-  padding: 0 0 24px 0;
-  margin: 0;
+  margin: 0 0 24px 0;
 }
 .avatar {
   display: flex;
@@ -64,9 +63,20 @@
   justify-content: center;
   gap: 16px;
 }
-.slider-dots { display:flex; align-items:center; gap:8px; }
-.dot { width:8px; height:8px; border-radius:50%; background: var(--opacity-neutral-darkest-15); }
-.dot--active { background: var(--color-black); }
+.slider-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--opacity-neutral-darkest-15);
+}
+.dot--active {
+  background: var(--color-black);
+}
 
 .btn-prev,
 .btn-next {
@@ -93,7 +103,7 @@
 .btn-next:not(:disabled):not(.is-disabled):hover,
 .btn-next:not(:disabled):not(.is-disabled):focus-visible {
   background: var(--color-bamboo-lightest);
-  color: #0B0500;
+  color: #0b0500;
   outline: none;
 }
 
@@ -124,18 +134,17 @@
   width: 24px;
   height: 24px;
   display: block;
-  pointer-events: none;      /* Edge-фікс, щоб ховер йшов по кнопці */
+  pointer-events: none; /* Edge-фікс, щоб ховер йшов по кнопці */
 }
 
 /* MEDIA QUERIES */
 @media only screen and (min-width: 768px) {
-
   .feedbacks {
     max-width: 768px;
     margin: 0 auto;
   }
-    .swiper-slide-border {
-    padding: 32px;;
+  .swiper-slide-border {
+    padding: 32px;
   }
 }
 
@@ -150,7 +159,6 @@
   .feedback-text {
     width: 357px;
   }
-
 }
 /* 
 .feedbacks-swiper {
@@ -196,7 +204,7 @@
 /*  left: 0; /* Adjust the distance from the left */
 /*  width: 100%; /* Ensure it spans the full width if needed */
 /*  text-align: center; /* Center the bullets horizontally */
-  /* You can also use 'top', 'right' for other positions */
+/* You can also use 'top', 'right' for other positions */
 /* } */
 
 /* Звичайні крапочки */

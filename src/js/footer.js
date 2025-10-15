@@ -3,7 +3,7 @@
   if (!container) return;
 
   const input = container.querySelector('.join-input');
-  const btn   = container.querySelector('.join-btn');
+  const btn = container.querySelector('.join-btn');
   if (!input || !btn) return;
 
   let wrap = input.closest('.input-wrap');
@@ -22,7 +22,7 @@
     wrap.appendChild(err);
   }
 
-  btn.addEventListener('click', (e) => {
+  btn.addEventListener('click', e => {
     e.preventDefault();
     wrap.classList.add('validated');
 
