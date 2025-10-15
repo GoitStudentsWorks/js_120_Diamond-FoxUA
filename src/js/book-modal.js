@@ -3,7 +3,7 @@ import 'accordion-js/dist/accordion.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-const backdrop = document.querySelector('#modal-backdrop');
+const backdrop = document.querySelector('#books-modal-backdrop');
 const body = document.body;
 
 export async function openBookModal(bookId) {
