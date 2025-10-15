@@ -34,14 +34,10 @@
     padding: 64px 16px;
     width: 100%;
     max-width: 320px;
+    max-height: calc(100vh - 64px);
     position: relative;
+    overflow-y: auto;
     animation: scaleIn 0.3s ease;
-}
-
-.modal-body {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
 }
 
 .close-btn {
@@ -68,10 +64,21 @@
     transform: scale(1.15);
 }
 
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
 .book-image {
     width: 100%;
     border-radius: 8px;
     object-fit: cover;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
 }
 
 .book-title {
@@ -105,10 +112,12 @@
 }
 
 .quantity-form button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: transparent;
     border: 1px solid #0b0500;
     border-radius: 4px;
-    padding: 8px 20px;
     width: 32px;
     height: 40px;
     cursor: pointer;
@@ -119,6 +128,10 @@
 
 .quantity-form button:hover {
     background-color: #dad9d8;
+}
+
+.quantity-form button:active {
+    background-color: transparent;
 }
 
 .quantity-form input {
@@ -186,19 +199,23 @@
 }
 
 /* Accordion */
-.accordion {
+.accordion-container {
     border-bottom: 1px solid rgba(11, 5, 0, 0.15);
 }
 
-.accordion-item {
+.ac {
     border-top: 1px solid rgba(11, 5, 0, 0.15);
 }
 
-.accordion-header {
-    background: none;
-    border: none;
+.ac-header {
+    margin: 0;
+}
+
+.ac-trigger {
     width: 100%;
     text-align: left;
+    background: none;
+    border: none;
     font-weight: 600;
     font-size: 16px;
     padding: 16px 0;
@@ -209,23 +226,24 @@
     transition: transform 0.15s ease;
 }
 
-.accordion-header:hover,
-.accordion-header:focus {
+.ac-trigger:hover {
     transform: scale(1.03);
 }
 
-.accordion-icon {
-    width: 14px;
-    height: 8px;
-    fill: #0b0500;
+.ac-trigger svg {
+    transition: transform 0.3s ease;
+    transform: rotate(0deg);
 }
 
-.accordion-body {
-    padding: 0 0 24px;
-    font-size: 16px;
-    color: #0b0500;
+.ac.is-active .ac-trigger svg {
+    transform: rotate(180deg);
+}
+
+.ac-panel {
     overflow: hidden;
     transition: height 0.3s ease;
+    padding-bottom: 24px;
+    color: #0b0500;
 }
 
 /* ===== ANIMATIONS ===== */
@@ -266,20 +284,30 @@
     }
 
     .modal-body {
+        display: flex;
         flex-direction: row;
+        gap: 24px;
+        align-items: flex-start;
     }
 
     .book-image {
         width: 45%;
         max-height: 467px;
     }
+
+    .modal-content {
+        flex: 1;
+    }
+   
 }
 
 /* ====== from 1440px (desktop) ====== */
 @media (min-width: 1440px) {
     .modal {
-        max-width: 1300px;
+        max-width: 1000px;
+        width: 100%;
         padding: 64px;
+        margin: 0 auto;
     }
 
     .buttons {

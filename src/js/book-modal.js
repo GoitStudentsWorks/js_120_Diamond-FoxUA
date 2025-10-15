@@ -15,65 +15,72 @@ export async function openBookModal(bookId) {
 
     const modalMarkup = `
       <div class="modal">
-        <button type="button" class="modal-close" aria-label="Close modal">
+        <button type="button" class="close-btn" aria-label="Close modal">
           <svg width="16" height="16">
             <use href="./src/img/icons-modal.svg#icon-close"></use>
           </svg>
         </button>
+        <div class="modal-body">
+          <img src="${book.book_image || ''}" alt="${book.title}" class="book-image"/>
+          <div class="modal-content">
+            <h2 class="book-title">${book.title || 'No title'}</h2>
+            <p class="book-author">${book.author || 'Unknown author'}</p>
+            <p class="book-price">${book.price ? `$${book.price}` : 'N/A'}</p>
 
-        <img src="${book.book_image || ''}" alt="${
-      book.title
-    }" class="book-image"/>
-        <h2 class="book-title">${book.title || 'No title'}</h2>
-        <p class="book-author">${book.author || 'Unknown author'}</p>
-        <p class="book-price">${book.price ? `$${book.price}` : 'N/A'}</p>
+            <form class="quantity-form">
+              <button type="button" class="decreaseQty">-</button>
+              <input type="number" class="bookQty" value="1" min="1" />
+              <button type="button" class="increaseQty">+</button>
+            </form>
 
-        <form class="quantity-form">
-          <button type="button" class="decreaseQty">-</button>
-          <input type="number" class="bookQty" value="1" min="1" />
-          <button type="button" class="increaseQty">+</button>
-        </form>
-
-        <div class="buttons">
-          <button type="button" class="addToCart">Add To Cart</button>
-          <button type="submit" class="buyNow">Buy Now</button>
+            <div class="buttons">
+              <button type="button" class="addToCart">Add To Cart</button>
+              <button type="submit" class="buyNow">Buy Now</button>
+            </div>
+          </div>
         </div>
 
-        <div class="accordion">
-          <div class="accordion-item">
-            <button class="accordion-header">
-              Details
-              <svg class="accordion-icon" width="14" height="8">
-                <use href="./src/img/icons-modal.svg#icon-down"></use>
-              </svg>
-            </button>
-            <div class="accordion-body">${
-              book.details || 'No details available'
-            }</div>
+        <div class="accordion-container">
+          <div class="ac">
+            <h2 class="ac-header">
+              <button class="ac-trigger">
+                Details
+                <svg class="accordion-icon" width="14" height="8">
+                  <use href="./src/img/icons-modal.svg#icon-down"></use>
+                </svg>
+              </button>
+            </h2>
+            <div class="ac-panel">
+              <p>${book.details || 'No details available'}</p>
+            </div>
           </div>
 
-          <div class="accordion-item">
-            <button class="accordion-header">
-              Shipping
-              <svg class="accordion-icon" width="14" height="8">
-                <use href="./src/img/icons-modal.svg#icon-down"></use>
-              </svg>
-            </button>
-            <div class="accordion-body">${
-              book.shipping || 'No shipping info available'
-            }</div>
+          <div class="ac">
+            <h2 class="ac-header">
+              <button class="ac-trigger">
+                Shipping
+                <svg class="accordion-icon" width="14" height="8">
+                  <use href="./src/img/icons-modal.svg#icon-down"></use>
+                </svg>
+              </button>
+            </h2>
+            <div class="ac-panel">
+              <p>${book.shipping || 'No shipping info available'}</p>
+            </div>
           </div>
 
-          <div class="accordion-item">
-            <button class="accordion-header">
-              Returns
-              <svg class="accordion-icon" width="14" height="8">
-                <use href="./src/img/icons-modal.svg#icon-down"></use>
-              </svg>
-            </button>
-            <div class="accordion-body">${
-              book.returns || 'No return policy available'
-            }</div>
+          <div class="ac">
+            <h2 class="ac-header">
+              <button class="ac-trigger">
+                Returns
+                <svg class="accordion-icon" width="14" height="8">
+                  <use href="./src/img/icons-modal.svg#icon-down"></use>
+                </svg>
+              </button>
+            </h2>
+            <div class="ac-panel">
+              <p>${book.returns || 'No return policy available'}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -138,24 +145,11 @@ export async function openBookModal(bookId) {
       }, 2500);
     });
 
-    new Accordion(modal.querySelector('.accordion'), {
+    new Accordion(modal.querySelector('.accordion-container'), {
       duration: 300,
-      showMultiple: false,
+      showMultiple: true,
     });
 
-    modal.querySelector('.accordion').addEventListener('click', e => {
-      const header = e.target.closest('.accordion-header');
-      if (!header) return;
-      const iconUse = header.querySelector('.accordion-icon use');
-      const body = header.nextElementSibling;
-      setTimeout(() => {
-        if (body && body.offsetHeight > 0) {
-          iconUse.setAttribute('href', './src/img/icons-modal.svg#icon-above');
-        } else {
-          iconUse.setAttribute('href', './src/img/icons-modal.svg#icon-down');
-        }
-      }, 310);
-    });
   } catch (err) {
     console.error('Error fetching book:', err);
     iziToast.error({
