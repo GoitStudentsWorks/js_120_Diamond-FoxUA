@@ -56,6 +56,8 @@
   background-color: var(--text-main-color);
 }
 
+/* =====================  BTN REGISTR ==================== */
+
 .events-btn {
   display: flex;
   gap: 8px;
@@ -66,7 +68,6 @@
   padding: 8px 0 8px 0;
   background-color: transparent;
 }
-
 .event-register-btn:hover {
   background-color: transparent;
 }
@@ -78,6 +79,7 @@
 .event-register-btn:hover .icon-chevron-right {
   transform: translateX(3px);
 }
+/* ===================  BTN  PAGINATION ========================== */
 
 .events-controls-wrapper {
   position: relative;
@@ -110,9 +112,9 @@
   background-color: #010101;
 }
 
-.svg {
+/* .svg {
   fill: white;
-}
+} */
 
 .events-buttons-wrapper {
   position: absolute;
@@ -123,12 +125,60 @@
   gap: 16px;
   z-index: 2;
 }
+/* =============================================================================================== */
+/* =============================================================================================== */
 
 .events-swiper-btn-prev,
 .events-swiper-btn-next {
   width: 48px;
   height: 48px;
-  background-color: #e15d05;
+  border: none;
+  border: 1px solid var(--opacity-neutral-darkest-15);
+  background: var(--color-orange-btn); /* Normal bg */
+  color: #fff; /* іконка біла (currentColor) */
+
+  transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease,
+    transform 0.05s ease;
+  cursor: pointer;
+}
+
+.events-swiper-btn-prev:not(:disabled):not(.is-disabled):hover,
+.events-swiper-btn-prev:not(:disabled):not(.is-disabled):focus
+  .events-swiper-btn-next:not(:disabled):not(.is-disabled):hover,
+.events-swiper-btn-next:not(:disabled):not(.is-disabled):focus-visible {
+  background: var(--color-bamboo-lightest);
+  color: #0b0500;
+  outline: none;
+}
+
+/* Pressed (стан за макетом “Active” під час натискання) */
+.events-swiper-btn-prev:not(:disabled):not(.is-disabled):active,
+.events-swiper-btn-next:not(:disabled):not(.is-disabled):active {
+  background: var(--color-bamboo-darker);
+  color: #fff; /* іконка біла */
+  transform: translateY(0.5px); /* легкий “press” */
+}
+
+/* Inactive / Disabled (на краях або заборонено) */
+.events-swiper-btn-prev[disabled],
+.events-swiper-btn-next[disabled],
+.events-swiper-btn-prev.is-disabled,
+.events-swiper-btn-next.is-disabled {
+  background: var(--color-bamboo);
+  color: #0b0500; /* іконка чорна */
+  opacity: 0.2; /* як у макеті */
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Скидання стилів для svg, щоб брало currentColor */
+.events-swiper-btn-prev svg,
+.events-swiper-btn-next svg {
+  fill: currentColor;
+  width: 24px;
+  height: 24px;
+  display: block;
+  pointer-events: none; /* Edge-фікс, щоб ховер йшов по кнопці */
 }
 
 @media screen and (min-width: 768px) {
