@@ -1,75 +1,138 @@
-/* ------------------ Header ------------------ */
-.header-nav {
+/* ------------------ Header container ------------------ */
+.header-container {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  height: 60px;
-  /* padding: 0 20px; */
+  padding: 0 12px 0 20px;
 }
 
+@media screen and (min-width: 768px) {
+  .header-container {
+    padding: 0 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .header-container {
+    padding: 0 64px;
+  }
+}
+
+/* ------------------ Header ------------------ */
 .logo {
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  flex-shrink: 0;
-}
-
-.logo-icon {
-  fill: #010101;
-  display: block;
   width: 84px;
   height: 36px;
 }
 
+.logo-icon {
+  width: 83px;
+  height: 21px;
+  fill: #010101;
+}
+
+.header-logo {
+  height: 64px;
+  padding: 14px 0;
+}
+
 .header-nav-list {
   display: none;
-  list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .header-nav-link {
-  text-decoration: none;
-  color: #333;
-  transition: opacity 0.3s;
+  color: var(--color-black);
+  font-weight: 500;
+  font-size: 20px;
+  transition: opacity 300ms ease-in-out;
 }
 
-.header-nav-link:hover {
-  opacity: 0.7;
+.header-nav-link:hover,
+.header-nav-link:focus {
+  opacity: 0.8;
 }
 
-/* ------------------ Бургер-меню ------------------ */
-.menu-open-btn {
+/* ------------------ Burger Button ------------------ */
+.menu-button,
+.menu-close-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 48px;
+  height: 48px;
   padding: 0;
-  background: transparent;
   border: none;
-  cursor: pointer;
-  z-index: 10000;
-  position: relative;
+  background-color: transparent;
+  transition: transform 300ms ease-in-out;
 }
 
-/* ------------------ Мобільне меню ------------------ */
+.menu-button:active,
+.menu-close-btn:active {
+  transform: scale(0.9);
+}
+
+.menu-icon,
+.menu-close-icon {
+  fill: var(--color-black);
+  transition: opacity 300ms ease-in-out;
+}
+
+/* ------------------ Tablet/Desktop ------------------ */
+@media screen and (min-width: 768px) {
+  .menu-button {
+    display: none;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .header-logo {
+    height: 72px;
+    padding: 16px 0;
+  }
+
+  .header-nav-link {
+    display: block;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 24px 0;
+  }
+
+  .header-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .logo-icon {
+    width: 104px;
+    height: 39px;
+  }
+
+  .header-nav-list {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+}
+
+/* ------------------ Mobile Menu ------------------ */
 .menu {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 999;
   width: 100%;
   height: 100%;
   background-color: var(--background-color);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.3s ease-in-out;
-  z-index: 9999;
-  overflow-y: auto;
-}
-
-.menu .logo {
-  padding: 14px 0;
+  transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+  overflow: auto;
 }
 
 .menu.is-open {
@@ -77,79 +140,51 @@
   visibility: visible;
   pointer-events: auto;
 }
-.menu-close-btn {
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 .menu-container {
+  position: relative;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   height: 100%;
-  padding: 0 20px;
+  padding: 80px 16px 43px;
 }
 
 .menu-header {
+  position: absolute;
+  top: 0;
+  right: 12px;
+  left: 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 32px;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.menu-close-btn:hover .menu-close-icon,
+.menu-close-btn:focus .menu-close-icon {
+  opacity: 0.5;
 }
 
 .menu-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-bottom: auto;
 }
 
 .menu-nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
 }
 
-.menu-nav-link {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 150%;
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.menu-nav-link:hover {
-  opacity: 0.7;
-}
-.menu.is-open .menu-nav-link {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: calc(var(--i) * 0.05s);
-}
-/* ------------------ Tablet/Desktop ------------------ */
+/* ------------------ Tablet/Desktop Mobile Menu ------------------ */
 @media screen and (min-width: 768px) {
-  .menu-open-btn {
-    display: none;
+  .menu-container {
+    padding: 96px 32px 128px;
   }
-  .header-nav-list {
-    display: flex;
-    gap: 32px;
-  }
-  .menu {
-    display: none;
-  }
-}
 
-html {
-  scroll-behavior: smooth;
+  .menu-header {
+    right: 16px;
+    left: 32px;
+  }
 }

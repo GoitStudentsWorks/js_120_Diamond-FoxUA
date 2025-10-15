@@ -1,46 +1,23 @@
-// Знаходимо елементи
-const menu = document.querySelector('[data-menu]');
-const openBtn = document.querySelector('[data-menu-open]');
-const closeBtn = document.querySelector('[data-menu-close]');
-const menuLinks = document.querySelectorAll('.menu-nav-link');
+(() => {
+  const refs = {
+    menu: document.querySelector('[data-menu]'),
+    openBtn: document.querySelector('[data-menu-open]'),
+    closeBtn: document.querySelector('[data-menu-close]'),
+    links: document.querySelectorAll('.menu-nav-link'),
+  };
 
-// Функція блокування скролу сторінки
-const toggleBodyScroll = disable => {
-  if (document.body) {
-    document.body.style.overflow = disable ? 'hidden' : '';
-  }
-};
+  const toggleMenu = () => {
+    const isOpen = refs.menu.classList.toggle('is-open');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  };
 
-// Відкриття меню
-if (openBtn && menu) {
-  openBtn.addEventListener('click', () => {
-    menu.classList.add('is-open');
-    menu.removeAttribute('hidden');
-    toggleBodyScroll(true);
+  if (refs.openBtn) refs.openBtn.addEventListener('click', toggleMenu);
+  if (refs.closeBtn) refs.closeBtn.addEventListener('click', toggleMenu);
 
-    openBtn.style.display = 'none';
+  refs.links.forEach(link => {
+    link.addEventListener('click', () => {
+      refs.menu.classList.remove('is-open');
+      document.body.style.overflow = '';
+    });
   });
-}
-
-const closeMenu = () => {
-  if (!menu) return;
-  menu.classList.remove('is-open');
-  menu.setAttribute('hidden', '');
-  toggleBodyScroll(false);
-
-  if (openBtn) openBtn.style.display = 'flex';
-};
-
-if (closeBtn) {
-  closeBtn.addEventListener('click', closeMenu);
-}
-
-if (menu) {
-  menu.addEventListener('click', e => {
-    if (e.target === menu) closeMenu();
-  });
-}
-
-menuLinks.forEach(link => {
-  link.addEventListener('click', closeMenu);
-});
+})();
