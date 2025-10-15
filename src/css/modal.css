@@ -123,7 +123,7 @@ body.no-scroll {
   font-size: 16px;
   line-height: 150%;
   color: var(--opacity-neutral-darkest-60);
-  transition: color 300 ease-in-out;
+  transition: color 300ms ease-in-out;
 }
 
 .modal-form input::placeholder:focus {

@@ -311,7 +311,7 @@ ul li:first-child .books-categories-list-link {
     background-image: none;
     border: none;
     height: auto;
-    overflow-y: none;
+    overflow-y: hidden;
     top: 100%;
     left: 0;
     margin-top: 24px;
