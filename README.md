@@ -89,12 +89,12 @@
 |:--------|:--------|:---------------|
 | **Ігор Коваленко** | Header | #... , #... |
 | **Ірина Пона** | Modal Window | #... , #... |
-| **Skyline** | Hero | #... , #... |
+| **Дмитро Чорний** | Hero | #... , #... |
 | **Світлана Дуда** | Article + Events | #https://github.com/Diamond-FoxUA/codeV1be-js/pull/4, #https://github.com/Diamond-FoxUA/codeV1be-js/pull/13 |
 | **Євгенія Ріпа** | Books | #... , #... |
 | **Дмитро Фарбун** | Feedbacks | #... , #... |
 | **Максим Сичов** | Location | #... |
-| **Михайло K.** | Footer | #... , #... |
+| **Михайло Kрупа** | Footer | #... , #... |
 **Kарен** | Modal Window Books | #... , #... |
 
 ---
