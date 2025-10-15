@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-  <symbol id="left-arrow-icon" viewBox="0 0 14 14">
-    <path fill="currentColor" d="M8.707 12.132 4.414 7.84H14v-2H4.414l4.293-4.293L7.293.132.586 6.84l6.707 6.707z"/>
-  </symbol>
-  <symbol id="right-arrow-icon" viewBox="0 0 14 14">
-    <path fill="currentColor" d="m5.293 12.132 1.414 1.414 6.707-6.707L6.707.132 5.293 1.546 9.586 5.84H0v2h9.586z"/>
-  </symbol>
-</svg>

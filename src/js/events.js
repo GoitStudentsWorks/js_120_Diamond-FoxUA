@@ -35,18 +35,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // =================== modal open ===================
 
-// Отримуємо бекдроп
+
 const backdrop = document.getElementById('modal-backdrop');
 
-// Функція відкриття модалки
+
 function openModal(eventTitle) {
-  // Створюємо HTML модалки (якщо ще немає)
+
   let modal = document.querySelector('.modal');
   if (!modal) {
     modal = document.createElement('div');
     modal.classList.add('modal');
 
-    // Кнопка закриття
+  
     modal.innerHTML = `
             <button class="modal-close" aria-label="Close modal">&times;</button>
             <h2 class="modal-title">Register for Event</h2>
@@ -68,11 +68,11 @@ function openModal(eventTitle) {
     // Закриття по кнопці
     modal.querySelector('.modal-close').addEventListener('click', closeModal);
   } else {
-    // Якщо модалка вже є, просто оновлюємо заголовок події
+    
     modal.querySelector('.event-title').textContent = eventTitle;
   }
 
-  // Показуємо бекдроп
+  
   backdrop.classList.add('is-open');
   document.body.classList.add('no-scroll');
 
