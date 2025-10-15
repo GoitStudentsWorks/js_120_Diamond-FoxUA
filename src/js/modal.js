@@ -19,7 +19,7 @@ function openModal(eventName) {
       </button>
       <h2 class="modal-title">Register</h2>
       <h3 class="event-title">${eventName}</h3>
-      <form class="modal-form" id="register-form">
+      <form class="modal-form" id="register-form" novalidate>
         <label>
           Name*
           <input type="text" name="name" placeholder="Eva" required />
@@ -82,15 +82,15 @@ function onFormSubmit(e) {
   let hasError = false;
 
   if (!name) {
-    showError(nameInput, 'Error text');
+    showError(nameInput, 'Name is required');
     hasError = true;
   }
 
   if (!email) {
-    showError(emailInput, 'Error text');
+    showError(emailInput, 'Email is required');
     hasError = true;
   } else if (!isValidEmail(email)) {
-    showError(emailInput, 'Invalid email');
+    showError(emailInput, 'Please enter a valid email');
     hasError = true;
   }
 
@@ -112,8 +112,6 @@ function showError(input, message) {
     input.dataset.originalPlaceholder = input.placeholder;
   }
 
-  input.placeholder = message;
-
   const errorEl = document.createElement('p');
   errorEl.classList.add('error-text');
   errorEl.textContent = message;
@@ -130,3 +128,4 @@ function resetInput(input) {
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
+
