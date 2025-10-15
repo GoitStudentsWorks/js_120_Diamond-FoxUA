@@ -17,7 +17,7 @@ export async function openBookModal(bookId) {
       <div class="modal">
         <button type="button" class="close-btn" aria-label="Close modal">
           <svg width="16" height="16">
-            <use href="./src/img/icons-modal.svg#icon-close"></use>
+            <use href="../img/icons-modal.svg#icon-close"></use>
           </svg>
         </button>
         <div class="modal-body">
@@ -46,7 +46,7 @@ export async function openBookModal(bookId) {
               <button class="ac-trigger">
                 Details
                 <svg class="accordion-icon" width="14" height="8">
-                  <use href="./src/img/icons-modal.svg#icon-down"></use>
+                  <use href="./img/icons-modal.svg#icon-down"></use>
                 </svg>
               </button>
             </h2>
@@ -60,7 +60,7 @@ export async function openBookModal(bookId) {
               <button class="ac-trigger">
                 Shipping
                 <svg class="accordion-icon" width="14" height="8">
-                  <use href="./src/img/icons-modal.svg#icon-down"></use>
+                  <use href="./img/icons-modal.svg#icon-down"></use>
                 </svg>
               </button>
             </h2>
@@ -74,7 +74,7 @@ export async function openBookModal(bookId) {
               <button class="ac-trigger">
                 Returns
                 <svg class="accordion-icon" width="14" height="8">
-                  <use href="./src/img/icons-modal.svg#icon-down"></use>
+                  <use href="./img/icons-modal.svg#icon-down"></use>
                 </svg>
               </button>
             </h2>
@@ -91,7 +91,7 @@ export async function openBookModal(bookId) {
     body.classList.add('no-scroll');
 
     const modal = backdrop.querySelector('.modal');
-    const closeBtn = modal.querySelector('.modal-close');
+    const closeBtn = modal.querySelector('.close-btn');
 
     closeBtn.addEventListener('click', closeModal);
     backdrop.addEventListener('click', onBackdropClick);
