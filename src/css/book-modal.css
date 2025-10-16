@@ -126,7 +126,8 @@
     transition: background-color 0.2s ease;
 }
 
-.quantity-form button:hover {
+.quantity-form button:hover,
+.quantity-form button:focus {
     background-color: #dad9d8;
 }
 
@@ -134,7 +135,7 @@
     background-color: transparent;
 }
 
-.quantity-form input {
+.quantity-form input[type='number'] {
     width: 42px;
     height: 40px;
     text-align: center;
@@ -142,6 +143,7 @@
     border-radius: 6px;
     padding: 8px 12px;
     background-color: rgba(11, 5, 0, 0.05);
+    outline: none;
 }
 
 .buttons {
@@ -201,6 +203,7 @@
 /* Accordion */
 .accordion-container {
     border-bottom: 1px solid rgba(11, 5, 0, 0.15);
+    margin-top: 32px;
 }
 
 .ac {
@@ -214,11 +217,12 @@
 .ac-trigger {
     width: 100%;
     text-align: left;
-    background: none;
+    background: transparent;
     border: none;
     font-weight: 600;
     font-size: 16px;
     padding: 16px 0;
+    color: #0b0500;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -228,6 +232,11 @@
 
 .ac-trigger:hover {
     transform: scale(1.03);
+    transform-origin: center;
+}
+
+.ac.is-active .ac-trigger {
+    transform: none;
 }
 
 .ac-trigger svg {
@@ -237,6 +246,11 @@
 
 .ac.is-active .ac-trigger svg {
     transform: rotate(180deg);
+}
+
+.ac-trigger::after {
+    display: none !important;
+    content: none !important;
 }
 
 .ac-panel {
