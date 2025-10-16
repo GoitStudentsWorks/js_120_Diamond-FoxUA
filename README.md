@@ -70,7 +70,7 @@
 | Учасник | Розділ | GitHub |
 |:--------|:--------|:--------|
 | **Ігор Коваленко** | 🧠 Header | [@Ihor-Kovalenko13](https://github.com/Ihor-Kovalenko13) |
-| **Ірина Пона** | 💬 Modal Window, | [@iryna-pona](https://github.com/iryna-pona) |
+| **Ірина Пона** | 💬 Modal Window,🔧 Modal Window Books | [@iryna-pona](https://github.com/iryna-pona) |
 | **Skyline** | 💡 Hero Section | [@Skyline](Chorniy-Dima) |
 | **Світлана Дуда** | 📰 Article, 🎉 Events | [@Світлана-Дуда](https://github.com/Svitwave) |
 | **Євгенія Ріпа** | 📚 Books | [@Yevheniia Ripa](https://github.com/YevheniiaRipa) |
