@@ -16,7 +16,7 @@ export async function openBookModal(bookId) {
     const modalMarkup = `
       <div class="modal">
         <button type="button" class="close-btn" aria-label="Close modal">
-          <svg width="16" height="16">
+          <svg width="32" height="32">
             <use href="${iconPath}#icon-x"></use>
           </svg>
         </button>
