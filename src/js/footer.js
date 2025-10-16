@@ -1,3 +1,5 @@
+import iziToast from "izitoast";
+
 (function () {
   const container = document.querySelector('.form');
   if (!container) return;
@@ -33,6 +35,9 @@
     } else {
       input.setAttribute('aria-invalid', 'false');
       wrap.classList.remove('validated');
+      iziToast.success({
+        message: 'Registration success'
+      });
     }
   });
 

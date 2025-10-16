@@ -1,12 +1,12 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Keyboard} from 'swiper/modules';
 
 document.addEventListener('DOMContentLoaded', () => {
   const swiperEl = document.querySelector('.events-swiper');
   if (!swiperEl) return;
 
   new Swiper(swiperEl, {
-    modules: [Navigation, Pagination],
+    modules: [Navigation, Pagination, Keyboard],
     slidesPerView: 1,
     spaceBetween: 24,
 
@@ -27,6 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
     navigation: {
       nextEl: '.events-swiper-btn-next',
       prevEl: '.events-swiper-btn-prev',
+    },
+
+    keyboard: {
+    enabled: true,   
     },
 
     watchOverflow: true,

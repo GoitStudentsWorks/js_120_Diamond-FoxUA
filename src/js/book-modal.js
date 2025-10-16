@@ -146,7 +146,7 @@ export async function openBookModal(bookId) {
         position: 'topRight',
         timeout: 2500,
       });
-      setTimeout(closeModal, 2500);
+      setTimeout(closeModal, 500);
     });
 
     new Accordion(modal.querySelector('.accordion-container'), {

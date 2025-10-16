@@ -15,11 +15,6 @@
   margin: 0 auto 32px;
 }
 
-/* .footer-logo-img {
-  width: 83px;
-  height: 21px;
-} */
-
 .footer-menu {
   display: flex;
   flex-direction: column;
@@ -198,23 +193,12 @@
 .required {
   font-size: 12px;
 }
-
-.divider {
-  border: 0;
-  border-top: 1px solid var(--opacity-white-20);
-  width: 343px;
-  height: 0;
-  margin: 0 auto 32px;
-  box-sizing: border-box;
-}
-
-.divider {
-  max-width: 100%;
-}
-
 .text-muted {
   font-size: 14px;
   text-align: center;
+
+  padding-top: 32px;
+  border-top: 1px solid var(--opacity-white-20);
 }
 
 @media (prefers-reduced-motion: reduce) {

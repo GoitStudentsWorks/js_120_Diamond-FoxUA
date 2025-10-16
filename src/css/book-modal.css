@@ -1,336 +1,353 @@
 /* ===== BASE (Mobile First, від 320px) ===== */
 
 .backdrop {
-    position: fixed;
-    inset: 0;
-    background-color: rgba(17, 17, 17, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 32px 16px;
-    z-index: 1000;
-    overflow-y: auto;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(17, 17, 17, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 16px;
+  z-index: 1000;
+  overflow-y: auto;
 
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .backdrop.is-open {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: all;
-    animation: fadeIn 0.3s ease;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  animation: fadeIn 0.3s ease;
 }
 
 .no-scroll {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .modal {
-    background: #fceee6;
-    border-radius: 16px;
-    padding: 64px 16px;
-    width: 100%;
-    max-width: 320px;
-    max-height: calc(100vh - 64px);
-    position: relative;
-    overflow-y: auto;
-    animation: scaleIn 0.3s ease;
+  background: #fceee6;
+  border-radius: 16px;
+  padding: 64px 16px;
+  width: 100%;
+  max-width: 320px;
+  max-height: calc(100vh - 64px);
+  position: relative;
+  overflow-y: auto;
+  animation: scaleIn 0.3s ease;
 }
 
 .close-btn {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 32px;
-    height: 32px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .close-btn svg {
-    fill: #0b0500;
-    transition: transform 0.2s ease;
+  fill: #0b0500;
+  transition: transform 0.2s ease;
 }
 
 .close-btn:hover svg,
 .close-btn:focus svg {
-    transform: scale(1.15);
+  transform: scale(1.15);
 }
 
 .modal-body {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .book-image {
-    width: 100%;
-    border-radius: 8px;
-    object-fit: cover;
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 .modal-content {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .book-title {
-    font-weight: 600;
-    font-size: 40px;
-    line-height: 120%;
-    letter-spacing: -0.01em;
-    color: #0b0500;
-    margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  color: #0b0500;
+  margin-bottom: 8px;
 }
 
 .book-author {
-    font-size: 14px;
-    color: #0b0500;
-    margin-bottom: 8px;
+  font-size: 14px;
+  color: #0b0500;
+  margin-bottom: 8px;
 }
 
 .book-price {
-    font-size: 24px;
-    line-height: 140%;
-    letter-spacing: -0.01em;
-    color: #0b0500;
-    margin-bottom: 24px;
+  font-size: 24px;
+  line-height: 140%;
+  letter-spacing: -0.01em;
+  color: #0b0500;
+  margin-bottom: 24px;
 }
 
 .quantity-form {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
 }
 
 .quantity-form button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    border: 1px solid #0b0500;
-    border-radius: 4px;
-    width: 32px;
-    height: 40px;
-    cursor: pointer;
-    font-size: 16px;
-    color: #0b0500;
-    transition: background-color 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid #0b0500;
+  border-radius: 4px;
+  width: 32px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #0b0500;
+  transition: background-color 0.2s ease;
 }
 
 .quantity-form button:hover,
 .quantity-form button:focus {
-    background-color: #dad9d8;
+  background-color: #dad9d8;
 }
 
 .quantity-form button:active {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .quantity-form input[type='number'] {
-    width: 42px;
-    height: 40px;
-    text-align: center;
-    border: 1px solid rgba(11, 5, 0, 0.15);
-    border-radius: 6px;
-    padding: 8px 12px;
-    background-color: rgba(11, 5, 0, 0.05);
-    outline: none;
+  width: 42px;
+  height: 40px;
+  text-align: center;
+  border: 1px solid rgba(11, 5, 0, 0.15);
+  border-radius: 6px;
+  padding: 8px 12px;
+  background-color: rgba(11, 5, 0, 0.05);
+  outline: none;
 }
 
 .buttons {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    margin-bottom: 32px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #66666648;
 }
 
 .buttons button {
-    padding: 12px 24px;
-    border-radius: 4px;
-    width: 100%;
-    height: 48px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+  padding: 12px 24px;
+  border-radius: 4px;
+  width: 100%;
+  height: 48px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
 .addToCart {
-    border: 1px solid #e15d05;
-    background-color: #e15d05;
-    color: #fff;
+  border: 1px solid #e15d05;
+  background-color: #e15d05;
+  color: #fff;
 }
 
 .addToCart:hover,
 .addToCart:focus {
-    border-color: #0b0500;
-    background-color: #ea8d50;
-    color: #0b0500;
+  border-color: #0b0500;
+  background-color: #ea8d50;
+  color: #0b0500;
 }
 
 .addToCart:active {
-    border-color: #b44a04;
-    background-color: #b44a04;
-    color: #fff;
+  border-color: #b44a04;
+  background-color: #b44a04;
+  color: #fff;
 }
 
 .buyNow {
-    border: 1px solid #0b0500;
-    background-color: transparent;
-    color: #0b0500;
+  border: 1px solid #0b0500;
+  background-color: transparent;
+  color: #0b0500;
 }
 
 .buyNow:hover,
 .buyNow:focus {
-    background-color: #0b0500;
-    color: #fff;
+  background-color: #0b0500;
+  color: #fff;
 }
 
 .buyNow:active {
-    background-color: #dad9d8;
+  background-color: #dad9d8;
 }
 
 /* Accordion */
 .accordion-container {
-    border-bottom: 1px solid rgba(11, 5, 0, 0.15);
-    margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid rgba(11, 5, 0, 0.15);
 }
 
-.ac {
-    border-top: 1px solid rgba(11, 5, 0, 0.15);
+#ac-0, #ac-1, #ac-2 {
+  background-color: transparent;
+}
+
+#ac-2 {
+  background-color: transparent;
 }
 
 .ac-header {
-    margin: 0;
+  margin: 0;
 }
 
 .ac-trigger {
-    width: 100%;
-    text-align: left;
-    background: transparent;
-    border: none;
-    font-weight: 600;
-    font-size: 16px;
-    padding: 16px 0;
-    color: #0b0500;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    transition: transform 0.15s ease;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 16px 0;
+  color: #0b0500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.15s ease;
 }
 
-.ac-trigger:hover {
-    transform: scale(1.03);
-    transform-origin: center;
-}
-
-.ac.is-active .ac-trigger {
-    transform: none;
-}
-
-.ac-trigger svg {
-    transition: transform 0.3s ease;
-    transform: rotate(0deg);
-}
-
-.ac.is-active .ac-trigger svg {
-    transform: rotate(180deg);
-}
-
-.ac-trigger::after {
-    display: none !important;
-    content: none !important;
+#ac-trigger-0,
+#ac-trigger-1,
+#ac-trigger-2 {
+  font-family: 'Rubik', sans-serif;
 }
 
 .ac-panel {
-    overflow: hidden;
-    transition: height 0.3s ease;
-    padding-bottom: 24px;
-    color: #0b0500;
+  margin-left: 8px;
+}
+
+.ac-trigger:hover {
+  transform: scale(1.03);
+  transform-origin: center;
+}
+
+.ac.is-active .ac-trigger {
+  transform: none;
+}
+
+.ac-trigger svg {
+  transition: transform 0.3s ease;
+  transform: rotate(0deg);
+}
+
+.ac.is-active .ac-trigger svg {
+  transform: rotate(180deg);
+}
+
+.ac-trigger::after {
+  display: none !important;
+  content: none !important;
+}
+
+.ac-panel {
+  overflow: hidden;
+  transition: height 0.3s ease;
+  padding-bottom: 24px;
+  color: #0b0500;
 }
 
 /* ===== ANIMATIONS ===== */
 @keyframes scaleIn {
-    from {
-        transform: scale(0.95);
-        opacity: 0;
-    }
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
 
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
+  from {
+    opacity: 0;
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 /* ====== from 375px (гумова) ====== */
 @media (min-width: 375px) {
-    .modal {
-        max-width: 343px;
-    }
+  .modal {
+    max-width: 343px;
+  }
 }
 
 /* ====== from 768px (tablet) ====== */
 @media (min-width: 768px) {
-    .modal {
-        max-width: 704px;
-        padding: 64px 32px;
-    }
+  .modal {
+    max-width: 704px;
+    padding: 64px 32px;
+  }
 
-    .modal-body {
-        display: flex;
-        flex-direction: row;
-        gap: 24px;
-        align-items: flex-start;
-    }
+  .modal-body {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: flex-start;
+  }
 
-    .book-image {
-        width: 45%;
-        max-height: 467px;
-    }
+  .book-image {
+    width: 45%;
+  }
 
-    .modal-content {
-        flex: 1;
-    }
-   
+  .modal-content {
+    flex: 1;
+  }
 }
 
 /* ====== from 1440px (desktop) ====== */
 @media (min-width: 1440px) {
-    .modal {
-        max-width: 1000px;
-        width: 100%;
-        padding: 64px;
-        margin: 0 auto;
-    }
+  .modal {
+    max-width: 1000px;
+    width: 100%;
+    padding: 64px;
+    margin: 0 auto;
+  }
 
-    .buttons {
-        flex-direction: row;
-        gap: 24px;
-    }
+  .buttons {
+    flex-direction: row;
+    gap: 24px;
+  }
 
-    .buttons button {
-        flex: 1;
-        width: auto;
-    }
+  .buttons button {
+    flex: 1;
+    width: auto;
+  }
 }
