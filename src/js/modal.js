@@ -1,6 +1,8 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
+const iconPath = new URL('/img/icons.svg', import.meta.url).href;
+
 const eventButtons = document.querySelectorAll('.event-btn');
 const backdrop = document.querySelector('#modal-backdrop');
 const body = document.body;
@@ -14,7 +16,7 @@ function openModal(eventName) {
     <div class="modal">
       <button type="button" class="modal-close" aria-label="Close modal">
         <svg width="16" height="16">
-         <use href="./img/icons.svg#icon-x"></use>
+         <use href="${iconPath}#icon-x"></use>
         </svg>
       </button>
       <h2 class="modal-title">Register</h2>

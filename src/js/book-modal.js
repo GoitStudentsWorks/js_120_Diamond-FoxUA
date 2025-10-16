@@ -3,6 +3,8 @@ import 'accordion-js/dist/accordion.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
+const iconPath = new URL('/img/icons.svg', import.meta.url).href;
+
 const backdrop = document.querySelector('#books-modal-backdrop');
 const body = document.body;
 
@@ -15,7 +17,7 @@ export async function openBookModal(bookId) {
       <div class="modal">
         <button type="button" class="close-btn" aria-label="Close modal">
           <svg width="16" height="16">
-            <use href="./img/icons-modal.svg#icon-close"></use>
+            <use href="${iconPath}#icon-x"></use>
           </svg>
         </button>
 
