@@ -91,7 +91,7 @@ function createMarkupCategoryList(arr) {
   `;
 
   const categoryItems = arr
-    .filter(name => name !== 'All categories')
+    .filter(name => name !== 'All categories' && name && name.trim() !== '')
     .map(
       name => `
         <li class="books-categories-item">
@@ -201,6 +201,10 @@ async function handleCategoryClick(event) {
   renderCategories();
   await renderBooks();
 
+  refs.categoryToggleBtn.querySelector(
+    '.books-categories-btn-text'
+  ).textContent = activeCategory;
+
   refs.categoryMenuContainer.classList.remove('is-open');
   refs.categoryToggleBtn.classList.remove('is-open');
 }
@@ -256,8 +260,6 @@ async function initializeApp() {
   }
 
   renderCategories();
-
-  refs.categoryToggleBtn.firstChild.textContent = 'Categories ';
 
   await renderBooks();
 

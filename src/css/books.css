@@ -33,16 +33,25 @@
   border-radius: 4px;
   padding: 8px 12px;
   background: var(--opacity-neutral-darkest-5);
-  color: var(--color-black);
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
   outline: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
   transition: background-color 300ms ease-in-out;
+}
+
+.books-categories-btn-text {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+  color: var(--color-black);
+  font-family: 'Rubik', sans-serift;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: left;
 }
 
 .books-arrow-icon {
@@ -72,7 +81,8 @@
   overflow: hidden;
   transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
   margin-top: 4px;
-  padding: 8px 6px 8px 12px;
+  /* padding: 8px 6px 8px 12px; */
+  padding-bottom: 12px;
 }
 
 .books-categories-menu.is-open {
@@ -84,7 +94,6 @@
 .books-categories-list {
   height: 100%;
   overflow-y: auto;
-  padding-right: 6px;
   margin: 0;
   scrollbar-width: none;
 }
@@ -124,7 +133,7 @@
 }
 
 .books-categories-list-link {
-  padding: 8px 0;
+  padding: 8px 12px;
 }
 
 .books-categories-list-link {
@@ -136,11 +145,11 @@
 }
 
 .books-categories-list-link:hover {
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
-ul li:first-child .books-categories-list-link {
-  padding-top: 0;
+.books-categories-list-link.active {
+  background-color: var(--opacity-neutral-darkest-5);
 }
 
 .books-list {
