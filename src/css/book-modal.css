@@ -1,46 +1,54 @@
-/* ===== BASE (Mobile First, від 320px) ===== */
-
-.backdrop {
+.book-modal-backdrop {
   position: fixed;
-  inset: 0;
-  background-color: rgba(17, 17, 17, 0.6);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--opacity-neutral-darkest-25);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 32px 16px;
   z-index: 1000;
   overflow-y: auto;
 
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.backdrop.is-open {
+.book-modal-backdrop.is-open {
   opacity: 1;
   visibility: visible;
-  pointer-events: all;
-  animation: fadeIn 0.3s ease;
+  pointer-events: auto;
 }
 
 .no-scroll {
   overflow: hidden;
 }
 
-.modal {
-  background: #fceee6;
-  border-radius: 16px;
-  padding: 64px 16px;
-  width: 100%;
-  max-width: 320px;
-  max-height: calc(100vh - 64px);
+/* Стилі для модального вікна */
+.book-modal {
   position: relative;
+  width: 100%;
+  max-width: 343px;
+  max-height: calc(100vh - 64px);
+  background-color: var(--background-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  padding: 64px 16px;
   overflow-y: auto;
-  animation: scaleIn 0.3s ease;
+  opacity: 0;
+  transform: scale(0.9);
 }
 
-.close-btn {
+.book-modal-backdrop.is-open .book-modal {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+/* Стилі для кнопки закриття */
+.book-modal-close-btn {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -48,306 +56,243 @@
   height: 32px;
   background: transparent;
   border: none;
-  cursor: pointer;
+  padding: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
-.close-btn svg {
-  fill: #0b0500;
-  transition: transform 0.2s ease;
+.book-modal-close-icon {
+  fill: var(--color-black);
 }
 
-.close-btn:hover svg,
-.close-btn:focus svg {
-  transform: scale(1.15);
+.book-modal-close-icon:hover,
+.book-modal-close-icon:focus {
+  fill: var(--color-black);
+  opacity: 0.6;
+  transform: scale(0.9);
 }
+*/
 
-.modal-body {
+/* Стилі для контенту книги */
+.book-modal-details-wrapper {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin-bottom: 32px;
 }
 
-.book-image {
+.book-modal-img {
   width: 100%;
+  max-width: 309px;
+  height: 467px;
   border-radius: 8px;
-  object-fit: cover;
-}
-
-.modal-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.book-title {
-  font-weight: 600;
-  font-size: 40px;
-  line-height: 120%;
-  letter-spacing: -0.01em;
-  color: #0b0500;
-  margin-bottom: 8px;
-}
-
-.book-author {
-  font-size: 14px;
-  color: #0b0500;
-  margin-bottom: 8px;
-}
-
-.book-price {
-  font-size: 24px;
-  line-height: 140%;
-  letter-spacing: -0.01em;
-  color: #0b0500;
   margin-bottom: 24px;
 }
 
-.quantity-form {
+.book-modal-title {
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--color-black);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.book-modal-author {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.book-modal-price {
+  font-size: 24px;
+  color: var(--color-black);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+
+/* Стилі для форми замовлення */
+.book-modal-order-form {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.quantity-selector {
+  display: flex;
   gap: 8px;
   margin-bottom: 16px;
 }
 
-.quantity-form button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  border: 1px solid #0b0500;
+.quantity-btn {
+  background: transparent;
+  border: 1px solid var(--color-black);
   border-radius: 4px;
   width: 32px;
   height: 40px;
-  cursor: pointer;
+  font-family: 'Rubik', sans-serif;
   font-size: 16px;
-  color: #0b0500;
-  transition: background-color 0.2s ease;
+  transition: background-color 300ms ease;
 }
 
-.quantity-form button:hover,
-.quantity-form button:focus {
-  background-color: #dad9d8;
+.quantity-btn:hover {
+  background-color: var(--color-orange-footer);
 }
 
-.quantity-form button:active {
-  background-color: transparent;
-}
-
-.quantity-form input[type='number'] {
+.quantity-input {
+  background-color: var(--opacity-neutral-darkest-5);
   width: 42px;
-  height: 40px;
   text-align: center;
-  border: 1px solid rgba(11, 5, 0, 0.15);
-  border-radius: 6px;
-  padding: 8px 12px;
-  background-color: rgba(11, 5, 0, 0.05);
-  outline: none;
-}
-
-.buttons {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-  padding-bottom: 32px;
-  border-bottom: 1px solid #66666648;
-}
-
-.buttons button {
-  padding: 12px 24px;
+  border: 1px solid var(--opacity-neutral-darkest-15);
   border-radius: 4px;
+  outline: none;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+}
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.add-to-cart-btn,
+.buy-now-btn {
+  max-width: 311px;
   width: 100%;
   height: 48px;
-  cursor: pointer;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-family: 'Rubik', sans-serif;
   font-size: 16px;
-  transition: background-color 0.3s ease;
+  cursor: pointer;
+  transition: background-color 300ms ease-in-out, opacity 300ms ease-in-out;
 }
 
-.addToCart {
-  border: 1px solid #e15d05;
-  background-color: #e15d05;
-  color: #fff;
+.add-to-cart-btn {
+  background-color: var(--color-orange-btn);
+  color: var(--color-white);
+  border: none;
+  margin-bottom: 24px;
 }
 
-.addToCart:hover,
-.addToCart:focus {
-  border-color: #0b0500;
-  background-color: #ea8d50;
-  color: #0b0500;
+.add-to-cart-btn:hover,
+.add-to-cart-btn:focus {
+  background-color: var(--color-black);
 }
 
-.addToCart:active {
-  border-color: #b44a04;
-  background-color: #b44a04;
-  color: #fff;
+.add-to-cart-btn:active {
+  background-color: var(--color-hover-btn);
 }
 
-.buyNow {
-  border: 1px solid #0b0500;
+.add-to-cart-btn:disabled {
+  background-color: var(--color-black);
+  opacity: 0.2;
+}
+
+.buy-now-btn {
   background-color: transparent;
-  color: #0b0500;
+  color: var(--color-black);
+  border: 1px solid var(--color-black);
 }
 
-.buyNow:hover,
-.buyNow:focus {
-  background-color: #0b0500;
-  color: #fff;
+.buy-now-btn:hover,
+.buy-now-btn:focus {
+  background-color: var(--color-orange-footer);
 }
 
-.buyNow:active {
-  background-color: #dad9d8;
+.buy-now-btn:active {
+  background-color: var(--color-transparentDark-btn);
 }
 
-/* Accordion */
-.accordion-container {
+.buy-now-btn:disabled {
+  opacity: 0.2;
+}
+
+/* Акордіон */
+.book-modal-content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%;
-  border-bottom: 1px solid rgba(11, 5, 0, 0.15);
-}
-
-#ac-0, #ac-1, #ac-2 {
-  background-color: transparent;
-}
-
-#ac-2 {
-  background-color: transparent;
-}
-
-.ac-header {
-  margin: 0;
-}
-
-.ac-trigger {
-  width: 100%;
-  text-align: left;
-  background: transparent;
-  border: none;
-  font-weight: 600;
-  font-size: 16px;
-  padding: 16px 0;
-  color: #0b0500;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  cursor: pointer;
-  transition: transform 0.15s ease;
 }
 
-#ac-trigger-0,
-#ac-trigger-1,
-#ac-trigger-2 {
-  font-family: 'Rubik', sans-serif;
+.book-modal-content .books-arrow-icon {
+  width: 24px;
+  height: 24px;
 }
 
-.ac-panel {
-  margin-left: 8px;
-}
-
-.ac-trigger:hover {
-  transform: scale(1.03);
-  transform-origin: center;
-}
-
-.ac.is-active .ac-trigger {
-  transform: none;
-}
-
-.ac-trigger svg {
-  transition: transform 0.3s ease;
-  transform: rotate(0deg);
-}
-
-.ac.is-active .ac-trigger svg {
+.ac.is-active > .ac-header .ac-trigger .books-arrow-icon {
   transform: rotate(180deg);
 }
 
-.ac-trigger::after {
-  display: none !important;
-  content: none !important;
+.book-modal-content .ac.is-active > .ac-header .ac-trigger::after,
+.book-modal-content .ac > .ac-header .ac-trigger::after {
+  content: '';
 }
 
-.ac-panel {
-  overflow: hidden;
-  transition: height 0.3s ease;
-  padding-bottom: 24px;
-  color: #0b0500;
+.book-details-accordion-container {
+  border-bottom: 1px solid var(--opacity-neutral-darkest-15);
 }
 
-/* ===== ANIMATIONS ===== */
-@keyframes scaleIn {
-  from {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+.book-modal-content .ac {
+  border: none;
+  border-top: 1px solid var(--opacity-neutral-darkest-15);
+  background-color: var(--background-color);
+  margin-bottom: 0;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+.book-modal-content .ac .ac-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: inherit;
+  font-size: 18px;
+  padding: 16px 0;
+  width: 100%;
 }
 
-/* ====== from 375px (гумова) ====== */
-@media (min-width: 375px) {
-  .modal {
-    max-width: 343px;
-  }
+.book-modal-content .ac .ac-trigger:focus {
+  color: var(--color-black);
 }
 
-/* ====== from 768px (tablet) ====== */
-@media (min-width: 768px) {
-  .modal {
+.book-modal-content .ac .ac-panel .ac-text {
+  font-family: inherit;
+  font-size: 16px;
+  padding: 0 0 24px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .book-modal-details-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    margin-bottom: 0;
+  }
+
+  .book-modal {
     max-width: 704px;
     padding: 64px 32px;
   }
 
-  .modal-body {
-    display: flex;
-    flex-direction: row;
-    gap: 24px;
-    align-items: flex-start;
-  }
-
-  .book-image {
-    width: 45%;
-  }
-
-  .modal-content {
-    flex: 1;
+  .book-modal-img {
+    margin-bottom: 0;
   }
 }
 
-/* ====== from 1440px (desktop) ====== */
-@media (min-width: 1440px) {
-  .modal {
-    max-width: 1000px;
-    width: 100%;
-    padding: 64px;
-    margin: 0 auto;
+@media screen and (min-width: 1440px) {
+  .book-modal {
+    max-width: 1300px;
+    padding: 64px 104px;
   }
 
-  .buttons {
-    flex-direction: row;
+  .book-modal-buttons {
+    display: flex;
     gap: 24px;
   }
 
-  .buttons button {
-    flex: 1;
-    width: auto;
+  .add-to-cart-btn {
+    margin: 0;
   }
 }

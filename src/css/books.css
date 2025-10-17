@@ -81,7 +81,6 @@
   overflow: hidden;
   transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
   margin-top: 4px;
-  /* padding: 8px 6px 8px 12px; */
   padding-bottom: 12px;
 }
 
