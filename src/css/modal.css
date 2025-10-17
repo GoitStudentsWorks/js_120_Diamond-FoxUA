@@ -108,7 +108,7 @@ body.no-scroll {
   color: #0b0500;
   width: 100%;
   min-height: 120px;
-  resize: vertical;
+  resize: none;
   padding: 12px;
   border: 1px solid var(--opacity-neutral-darkest-15);
   border-radius: 4px;
