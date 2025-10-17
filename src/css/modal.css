@@ -28,7 +28,7 @@ body.no-scroll {
   background-color: #fceee6;
   border-radius: 16px;
   width: 100%;
-  max-width: 320px;
+  max-width: 343px;
   padding: 64px 16px;
   box-shadow: 0 8px 24px var(--opacity-neutral-darkest-15);
   box-sizing: border-box;
@@ -68,6 +68,7 @@ body.no-scroll {
   letter-spacing: -0.01em;
   text-align: center;
   color: var(--color-black);
+  margin-bottom: 48px;
 }
 
 /* Form */
@@ -96,7 +97,7 @@ body.no-scroll {
   border-radius: 4px;
   background-color: var(--opacity-neutral-darkest-5);
   outline: none;
-  transition: border-color 0.3s, color 0.3s;
+  transition: border-color 300ms ease-in-out, color 300ms ease-in-out;
 }
 
 .modal-form textarea {
@@ -123,7 +124,6 @@ body.no-scroll {
   font-size: 16px;
   line-height: 150%;
   color: var(--opacity-neutral-darkest-60);
-  transition: color 300ms ease-in-out;
 }
 
 .modal-form input::placeholder:focus {
@@ -194,19 +194,8 @@ body.no-scroll {
 
 /* Media Queries */
 
-/* Mobile-adaptive 375px+ */
-@media screen and (min-width: 375px) {
-  .modal {
-    max-width: 360px;
-  }
-}
-
 /* Tablet 768px+ */
 @media screen and (min-width: 768px) {
-  .backdrop {
-    padding: 64px 32px;
-  }
-
   .modal {
     max-width: 704px;
     padding: 64px 32px;
@@ -215,10 +204,6 @@ body.no-scroll {
 
 /* Desktop 1440px+ */
 @media screen and (min-width: 1440px) {
-  .backdrop {
-    padding: 64px 0px;
-  }
-
   .modal {
     max-width: 866px;
     padding: 64px;
