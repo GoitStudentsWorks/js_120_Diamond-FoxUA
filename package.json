@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/codeV1be-js/",
+    "build": "vite build --base=/js_120_Diamond-FoxUA/",
     "preview": "vite preview"
   },
   "devDependencies": {
