@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/js_120_Diamond-FoxUA/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booksy</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+      integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script type="module" crossorigin src="/js_120_Diamond-FoxUA/index.js"></script>
+    <link rel="modulepreload" crossorigin href="/js_120_Diamond-FoxUA/assets/vendor-Dq1_fzaD.js">
+    <link rel="stylesheet" crossorigin href="/js_120_Diamond-FoxUA/assets/vendor-mmxeKHFU.css">
+    <link rel="stylesheet" crossorigin href="/js_120_Diamond-FoxUA/assets/index-Df43dPDk.css">
+  </head>
+  <body>
+    <header class="header">
+  <div class="container header-container">
+    <nav class="header-nav">
+      <a href="./index.html" class="logo header-logo">
+        <svg class="logo-icon" width="83" height="21">
+          <use href="/js_120_Diamond-FoxUA/assets/icons-m-iaAyZR.svg#icon-book"></use>
+        </svg>
+      </a>
+
+      <ul class="header-nav-list">
+        <li><a class="header-nav-link" href="#">Home</a></li>
+        <li><a class="header-nav-link" href="#books">Books</a></li>
+        <li><a class="header-nav-link" href="#feedbacks">Feedbacks</a></li>
+        <li><a class="header-nav-link" href="#events">Events</a></li>
+        <li><a class="header-nav-link" href="#location">Location</a></li>
+      </ul>
+    </nav>
+
+    <button class="menu-button" type="button" data-menu-open>
+      <svg class="menu-icon" width="24" height="24">
+        <use href="/js_120_Diamond-FoxUA/assets/icons-m-iaAyZR.svg#icon-menu-burger"></use>
+      </svg>
+    </button>
+  </div>
+
+  <div class="menu" data-menu>
+    <div class="container menu-container">
+      <div class="menu-header">
+        <a href="./index.html" class="logo header-logo">
+          <svg class="logo-icon" width="83" height="21">
+            <use href="/js_120_Diamond-FoxUA/assets/icons-m-iaAyZR.svg#icon-book"></use>
+          </svg>
+        </a>
+        <button class="menu-close-btn" data-menu-close>
+          <svg class="menu-close-icon" width="24" height="24">
+            <use href="/js_120_Diamond-FoxUA/assets/icons-m-iaAyZR.svg#icon-x"></use>
+          </svg>
+        </button>
+      </div>
+      <nav class="menu-nav">
+        <ul class="menu-nav-list">
+          <li><a class="header-nav-link" href="#">Home</a></li>
+          <li><a class="header-nav-link" href="#books">Books</a></li>
+          <li>
+            <a class="header-nav-link" href="#feedbacks">Feedbacks</a>
+          </li>
+          <li><a class="header-nav-link" href="#events">Events</a></li>
+          <li><a class="header-nav-link" href="#location">Location</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+    <main>
+      <section class="hero">
+  <div class="container">
+    <div class="hero-swiper">
+      <ul class="hero-swiper-wrapper">
+        <li class="hero-slide">
+          <picture>
+            <source
+              srcset="/js_120_Diamond-FoxUA/assets/banner1-desk-min-DUY30uCU.jpg 1x, /js_120_Diamond-FoxUA/assets/banner1-desk@2x-min-qOfNABcD.jpg 2x"
+              media="(min-width: 1440px)"
+            />
+            <source
+              srcset="/js_120_Diamond-FoxUA/assets/banner1-tab-min-DWVeVCIG.jpg 1x, /js_120_Diamond-FoxUA/assets/banner1-tab@2x-min-DfZBoMl8.jpg 2x"
+              media="(min-width: 768px)"
+            />
+            <source
+              srcset="/js_120_Diamond-FoxUA/assets/banner1-mob-min-CZ8z8rLg.jpg 1x, /js_120_Diamond-FoxUA/assets/banner1-mob@2x-min-CJyKA0ea.jpg 2x"
+              media="(min-width: 320px)"
+            />
+            <img
+              src="/js_120_Diamond-FoxUA/assets/banner1-mob-min-CZ8z8rLg.jpg"
+              alt="banner1"
+              class="banner-img"
+            />
+          </picture>
+          <div class="banner-txt">
+            <h3 class="banner-title">Get 10% off your first order</h3>
+            <a href="#books" class="banner-btn">Shop now!</a>
+          </div>
+        </li>
+        <li class="hero-slide">
+          <picture>
+            <source
+              srcset="/js_120_Diamond-FoxUA/assets/banner2-desk-min-CJz0kh6M.jpg 1x, /js_120_Diamond-FoxUA/assets/banner2-desk@2x-min-71hPEQ-E.jpg 2x"
+              media="(min-width: 1440px)"
+            />
+            <source
+              srcset="/js_120_Diamond-FoxUA/assets/banner2-tab-min-CfaqE3La.jpg 1x, /js_120_Diamond-FoxUA/assets/banner2-tab@2x-min-DtWwBAAf.jpg 2x"
+              media="(min-width: 768px)"
+            />
+            <source
+              srcset="/js_120_Diamond-FoxUA/assets/banner2-mob-min-1Is-US8A.jpg 1x, /js_120_Diamond-FoxUA/assets/banner2-mob@2x-min-DnCNa_s2.jpg 2x"
+              media="(min-width: 320px)"
+            />
+            <img
+              src="/js_120_Diamond-FoxUA/assets/banner2-mob-min-1Is-US8A.jpg"
+              alt="banner2"
+              class="banner-img"
+            />
+          </picture>
+          <div class="banner-txt">
+            <h3 class="banner-title">Save 15% on some books</h3>
+            <a href="#books" class="banner-btn">Shop now!</a>
+          </div>
+        </li>
+        <li class="hero-slide">
+          <picture>
+            <source
+              srcset="/js_120_Diamond-FoxUA/assets/banner3-desk-min-DAdArJ-x.jpg 1x, /js_120_Diamond-FoxUA/assets/banner3-desk@2x-min-1g8gwijj.jpg 2x"
+              media="(min-width: 1440px)"
+            />
+            <source
+              srcset="/js_120_Diamond-FoxUA/assets/banner3-tab-min-Cvz6-MAJ.jpg 1x, /js_120_Diamond-FoxUA/assets/banner3-tab@2x-min-aWGkEsj1.jpg 2x"
+              media="(min-width: 768px)"
+            />
+            <source
+              srcset="/js_120_Diamond-FoxUA/assets/banner3-mob-min-D3ByowDD.jpg 1x, /js_120_Diamond-FoxUA/assets/banner3-mob@2x-min-BSOU8bA4.jpg 2x"
+              media="(min-width: 320px)"
+            />
+            <img
+              src="/js_120_Diamond-FoxUA/assets/banner3-mob-min-D3ByowDD.jpg"
+              alt="banner3"
+              class="banner-img"
+            />
+          </picture>
+          <div class="banner-txt">
+            <h3 class="banner-title long">
+              Summer Sale!<br />
+              Up to -40% discounts
+            </h3>
+            <a href="#books" class="banner-btn">Shop now!</a>
+          </div>
+        </li>
+        <li class="hero-slide">
+          <picture>
+            <source
+              srcset="/js_120_Diamond-FoxUA/assets/banner4-desk-min-C3L_RnbG.jpg 1x, /js_120_Diamond-FoxUA/assets/banner4-desk@2x-min-E3ArbCJj.jpg 2x"
+              media="(min-width: 1440px)"
+            />
+            <source
+              srcset="/js_120_Diamond-FoxUA/assets/banner4-tab-min-fUths35t.jpg 1x, /js_120_Diamond-FoxUA/assets/banner4-tab@2x-min-HvShXbQW.jpg 2x"
+              media="(min-width: 768px)"
+            />
+            <source
+              srcset="/js_120_Diamond-FoxUA/assets/banner4-mob-min-sA09ynyp.jpg 1x, /js_120_Diamond-FoxUA/assets/banner4-mob@2x-min-MJqYizxM.jpg 2x"
+              media="(min-width: 320px)"
+            />
+            <img
+              src="/js_120_Diamond-FoxUA/assets/banner4-mob-min-sA09ynyp.jpg"
+              alt="banner4"
+              class="banner-img"
+            />
+          </picture>
+          <div class="banner-txt">
+            <h3 class="banner-title long">
+              Last chance to buy our spring bestsellers
+            </h3>
+            <a href="#books" class="banner-btn">Shop now!</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="under-banner">
+        <div class="swipe-btns">
+          <button class="hero-left-btn">
+            <svg class="hero-arrow" width="24px" height="24px">
+              <use href="/js_120_Diamond-FoxUA/assets/icons-m-iaAyZR.svg#icon-left-arrow-alt"></use>
+            </svg>
+          </button>
+          <button class="hero-right-btn">
+            <svg class="hero-arrow" width="24px" height="24px">
+              <use href="/js_120_Diamond-FoxUA/assets/icons-m-iaAyZR.svg#icon-right-arrow-alt"></use>
+            </svg>
+          </button>
+        </div>
+        <h1 class="main-title">Discover Your Next Great Read Today!</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section class="books" id="books">
+  <div class="container books-container">
+    <h2 class="visually-hidden">Trending books</h2>
+    <div class="books-header">
+      <div class="books-info-top">
+        <h3 class="books-subtitle">Books</h3>
+        <span class="books-showing-count" id="books-showing-count"
+          >Showing 0 of 0</span
+        >
+      </div>
+      <div class="books-categories">
+        <button
+          class="books-categories-btn"
+          id="books-categories-btn"
+          data-category-list-toggle
+        >
+          <span class="books-categories-btn-text">Categories</span>
+          <svg class="books-arrow-icon" width="24" height="24">
+            <use href="/js_120_Diamond-FoxUA/assets/icons-m-iaAyZR.svg#icon-arrow-dwn"></use>
+          </svg>
+        </button>
+        <div class="books-categories-menu" data-category-list>
+          <ul class="books-categories-list" id="books-categories-list"></ul>
+          <div class="books-categories-scrollbar">
+            <div class="books-categories-scrollbar-thumb"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="books-list-wrapper">
+      <ul class="js-books-list books-list"></ul>
+
+      <button class="books-show-more-btn show-more-hidden">Show more</button>
+    </div>
+  </div>
+</section>
+
+
+      <section id="feedbacks" class="feedbacks">
+  <div class="container">
+    <!-- Section Title -->
+    <div class="feedbacks-title">
+      <h2 class="section-title">Customer Feedbacks</h2>
+      <p class="feedbacks-subtitle">
+        See what our readers are saying about us!
+      </p>
+    </div>
+
+    <!-- Content -->
+    <div class="swiper" id="feedbacks-slider">
+      <ul class="swiper-wrapper">
+        <!-- відгук # 1-->
+        <li class="swiper-slide swiper-slide-border">
+          <blockquote class="feedback-text">
+            Great selection, fast delivery, and beautifully packaged books. My
+            go-to store for weekend reads!
+          </blockquote>
+          <div class="avatar">
+            <img
+              class="avatar-image"
+              src="/js_120_Diamond-FoxUA/assets/Avatar_Image_Jane_Doe-C7bEFB9M.png"
+              alt="Jane Doe"
+            />
+            <div class="avatar-content">
+              <p class="avatar-name">Jane Doe</p>
+              <p class="avatar-text">Book Lover, Reader</p>
+            </div>
+          </div>
+        </li>
+        <!-- відгук # 2 -->
+        <li class="swiper-slide swiper-slide-border">
+          <blockquote class="feedback-text">
+            Customer service was super helpful, and my order arrived earlier
+            than expected. Highly recommend!
+          </blockquote>
+          <div class="avatar">
+            <img
+              class="avatar-image"
+              src="/js_120_Diamond-FoxUA/assets/Avatar_Image_John_Smith-BiSGRl3F.png"
+              alt="John Smith"
+            />
+            <div class="avatar-content">
+              <p class="avatar-name">John Smith</p>
+              <p class="avatar-text">Editor, BookMag</p>
+            </div>
+          </div>
+        </li>
+        <!-- відгук # 3 -->
+        <li class="swiper-slide swiper-slide-border">
+          <blockquote class="feedback-text">
+            Love the curated picks and clear descriptions. Makes it easy to find
+            my next favorite book.
+          </blockquote>
+          <div class="avatar">
+            <img
+              class="avatar-image"
+              src="/js_120_Diamond-FoxUA/assets/Avatar_Image_Emily_Johnson-ChMQ2OR0.png"
+              alt="John Smith"
+            />
+            <div class="avatar-content">
+              <p class="avatar-name">Emily Johnson</p>
+              <p class="avatar-text">Author, Novelist</p>
+            </div>
+          </div>
+        </li>
+        <!-- відгук # 4 -->
+        <li class="swiper-slide swiper-slide-border">
+          <blockquote class="feedback-text">
+            The recommendations feel spot-on. I’ve discovered authors I wouldn’t
+            have found on my own.
+          </blockquote>
+          <div class="avatar">
+            <img
+              class="avatar-image"
+              src="/js_120_Diamond-FoxUA/assets/Avatar_Image_Alex_Martin-C3TbfhPg.png"
+              alt="Alex Martin"
+            />
+            <div class="avatar-content">
+              <p class="avatar-name">Alex Martin</p>
+              <p class="avatar-text">UX Designer</p>
+            </div>
+          </div>
+        </li>
+        <!-- відгук # 5 -->
+        <li class="swiper-slide swiper-slide-border">
+          <blockquote class="feedback-text">
+            Smooth checkout and quick shipping. The packaging kept my hardcovers
+            in perfect condition.
+          </blockquote>
+          <div class="avatar">
+            <img
+              class="avatar-image"
+              src="/js_120_Diamond-FoxUA/assets/Avatar_Image_Sofia_Larsen-BXXsAzVk.png"
+              alt="Sofia Larsen"
+            />
+            <div class="avatar-content">
+              <p class="avatar-name">Sofia Larsen</p>
+              <p class="avatar-text">Literature Student</p>
+            </div>
+          </div>
+        </li>
+        <!-- відгук # 6 -->
+        <li class="swiper-slide swiper-slide-border">
+          <blockquote class="feedback-text">
+            Love the clear summaries and curated lists. Makes choosing my next
+            read effortless.
+          </blockquote>
+          <div class="avatar">
+            <img
+              class="avatar-image"
+              src="/js_120_Diamond-FoxUA/assets/Avatar_Image_David_Ng-3cJx2UTl.png"
+              alt="David Ng"
+            />
+            <div class="avatar-content">
+              <p class="avatar-name">David Ng</p>
+              <p class="avatar-text">Software Engineer</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- Навігація -->
+    <div class="feedbacks-nav">
+      <div class="slider-dots"></div>
+      <div class="feedbacks-controls">
+        <button
+          class="btn-prev"
+          type="button"
+          aria-label="Previous"
+          aria-controls="feedbacks-slider"
+          disabled
+        >
+          <svg width="24" height="24" aria-hidden="true" focusable="false">
+            <use href="/js_120_Diamond-FoxUA/assets/icons-m-iaAyZR.svg#icon-left-arrow-alt"></use>
+          </svg>
+        </button>
+
+        <button
+          class="btn-next"
+          type="button"
+          aria-label="Next"
+          aria-controls="feedbacks-slider"
+        >
+          <svg width="24" height="24" aria-hidden="true" focusable="false">
+            <use href="/js_120_Diamond-FoxUA/assets/icons-m-iaAyZR.svg#icon-right-arrow-alt"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Swiper CSS & JS (CDN) -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper@10/swiper-bundle.min.css"
+/>
+<script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
+
+      <section class="section" id="events">
+  <div class="container">
+    <p class="section-name">Events</p>
+    <h2 class="events-title">Upcoming Events at Booksy</h2>
+    <p class="events-text">
+      Discover readings, workshops, and bookish gatherings — online and offline.
+      Everyone’s welcome.
+    </p>
+
+    <!-- ===================Swiper контейнер================== -->
+    <div class="swiper events-swiper">
+      <ul class="swiper-wrapper events-list">
+        <!-- slide 1 -->
+        <li class="swiper-slide events-item">
+          <picture class="events-image">
+            <source
+              srcset="/js_120_Diamond-FoxUA/assets/events-1-1x-34hDWbsR.jpg 1x, /js_120_Diamond-FoxUA/assets/events-1-2x-DuMevtw0.jpg 2x"
+            />
+            <img
+              src="/js_120_Diamond-FoxUA/assets/events-1-1x-34hDWbsR.jpg"
+              width="343"
+              height="248"
+              alt="Cozy Book Club"
+              loading="eager"
+              decoding="async"
+            />
+          </picture>
+          <div class="events-content-wrapper">
+            <div class="section-register">
+              <p class="events-description">
+                Cozy Book Club — “The Midnight Library”
+              </p>
+              <div class="event-meta">
+                <span class="event-location">In-store </span>
+                <time datetime="2025-06-05T18:30">| June 5, 6:30 PM</time>
+              </div>
+              <p class="events-content">
+                Join us for an evening of tea, thoughtful conversation, and
+                shared reflections as we dive into Matt Haig’s bestseller.
+              </p>
+            </div>
+            <button
+              class="event-btn btn-secondary events-btn event-register-btn"
+              data-event="Cozy Book Club — “The Midnight Library”"
+              type="button"
+            >
+              Register
+              <svg class="icon-chevron-right" width="25" height="25">
+                <use href="/js_120_Diamond-FoxUA/assets/icons-m-iaAyZR.svg#icon-chevron-right"></use>
+              </svg>
+            </button>
+          </div>
+        </li>
+
+        <!-- =================== slide 2==================== -->
+        <li class="swiper-slide events-item">
+          <picture class="events-image">
+            <source
+              srcset="/js_120_Diamond-FoxUA/assets/events-2-1x-C5xdLRsk.jpg 1x, /js_120_Diamond-FoxUA/assets/events-2-2x-D0MeyMfQ.jpg 2x"
+            />
+            <img
+              src="/js_120_Diamond-FoxUA/assets/events-2-1x-C5xdLRsk.jpg"
+              width="343"
+              height="248"
+              loading="lazy"
+              decoding="async"
+              alt="Book Cover Design Workshop"
+            />
+          </picture>
+          <div class="events-content-wrapper">
+            <div>
+              <p class="events-description">Book Cover Design Workshop</p>
+              <div class="event-meta">
+                <span class="event-location">Online </span>
+                <time datetime="2025-06-12T19:00">| June 12, 7:00 PM</time>
+              </div>
+              <p class="events-content">
+                A hands-on session for aspiring designers and curious readers.
+                Learn what makes a cover stand out — from concept to print.
+              </p>
+            </div>
+            <button
+              class="event-btn btn-secondary events-btn event-register-btn"
+              data-event="Book Cover Design Workshop"
+              type="button"
+            >
+              Register
+              <svg class="icon-chevron-right" width="25" height="25">
+                <use href="/js_120_Diamond-FoxUA/assets/icons-m-iaAyZR.svg#icon-chevron-right"></use>
+              </svg>
+            </button>
+          </div>
+        </li>
+
+        <!-- <!================ slide 3 ==========================> -->
+        <li class="swiper-slide events-item">
+          <picture class="events-image">
+            <source
+              srcset="/js_120_Diamond-FoxUA/assets/events-3-1x-CvqyK9M2.jpg 1x, /js_120_Diamond-FoxUA/assets/events-3-2x-x63YPPxG.jpg 2x"
+            />
+            <img
+              src="/js_120_Diamond-FoxUA/assets/events-3-1x-CvqyK9M2.jpg"
+              width="343"
+              height="248"
+              loading="lazy"
+              decoding="async"
+              alt="Children’s Story Hour"
+            />
+          </picture>
+          <div class="events-content-wrapper">
+            <div>
+              <p class="events-description">Children’s Story Hour</p>
+              <div class="event-meta">
+                <span class="event-location">Online </span>
+                <time datetime="2025-06-12T19:00"> | June 12, 7:00 PM</time>
+              </div>
+              <p class="events-content">
+                A magical morning of stories, games, and imagination for our
+                youngest book lovers (ages 4–8).
+              </p>
+            </div>
+            <button
+              class="event-btn btn-secondary events-btn event-register-btn"
+              data-event="Children’s Story Hour"
+              type="button"
+            >
+              Register
+              <svg class="icon-chevron-right" width="25" height="25">
+                <use href="/js_120_Diamond-FoxUA/assets/icons-m-iaAyZR.svg#icon-chevron-right"></use>
+              </svg>
+            </button>
+          </div>
+        </li>
+      </ul>
+
+      <!-- button and pagination -->
+      <div class="events-controls-wrapper">
+        <ul class="ev-pagination" aria-label="Slides pagination"></ul>
+        <div class="events-buttons-wrapper">
+          <button
+            class="events-swiper-btn-prev arrow"
+            type="button"
+            aria-label="Previous slide"
+            disabled
+          >
+            <svg class="svg" width="24" height="24">
+              <use href="/js_120_Diamond-FoxUA/assets/icons-m-iaAyZR.svg#icon-left-arrow-alt"></use>
+            </svg>
+          </button>
+          <button
+            class="events-swiper-btn-next arrow"
+            type="button"
+            aria-label="Next slide"
+          >
+            <svg class="svg" width="24" height="24">
+              <use href="/js_120_Diamond-FoxUA/assets/icons-m-iaAyZR.svg#icon-right-arrow-alt"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="modal-backdrop" class="backdrop"></div>
+  </div>
+</section>
+
+      <section class="article">
+  <div class="container article-container">
+    <div class="article-text">
+      <h2 class="article-title">
+        Welcome to Booksy – your cozy corner for handpicked reads.
+      </h2>
+      <p class="article-paragraf">
+        We believe books are more than just stories — they’re companions,
+        doorways, and memories. Whether you’re chasing adventures or quiet
+        moments, we’re here to help you find your next favorite book.
+      </p>
+    </div>
+    <picture class="article-img">
+      <source
+        srcset="/js_120_Diamond-FoxUA/assets/article1x-DyeK7XOC.jpg 1x, /js_120_Diamond-FoxUA/assets/article2x-Dn-dGV3u.jpg 2x"
+        media="(min-width: 1440px)"
+      />
+      <source
+        srcset="/js_120_Diamond-FoxUA/assets/article-tab1x-ZJnl_4ms.jpg 1x, /js_120_Diamond-FoxUA/assets/article-tab2x-9ZTfvqVb.jpg 2x"
+        media="(min-width:768px)"
+      />
+
+      <source
+        srcset="/js_120_Diamond-FoxUA/assets/article-mob1x-1uiDYtdh.jpg 1x, /js_120_Diamond-FoxUA/assets/article-mob2x-OoE3uutp.jpg 2x"
+        media="(max-width: 767px)"
+      />
+      <img src="/js_120_Diamond-FoxUA/assets/article1x-DyeK7XOC.jpg" alt="man in the library" />
+    </picture>
+  </div>
+</section>
+
+      <section class="location" id="location">
+  <div class="container">
+    <div class="text-and-contacts">
+      <div class="container-text">
+        <p class="locs section-subtitle">Location</p>
+        <h2 class="section-title section-title-rew">How to find us</h2>
+        <p class="location-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          varius enim in eros elementum tristique.
+        </p>
+      </div>
+
+      <address class="contacts">
+        <ul class="contact-list">
+          <li class="contact-item">
+            <svg
+              class="icon"
+              aria-hidden="true"
+              focusable="false"
+              width="20"
+              height="17"
+            >
+              <use href="/js_120_Diamond-FoxUA/assets/icons-m-iaAyZR.svg#icon-email"></use>
+            </svg>
+            <div class="contact-item-inner">
+              <p class="contact-label">Email:</p>
+              <a href="mailto:hello@booksy.com" class="contact-link"
+                >hello@booksy.com</a
+              >
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <svg
+              class="icon"
+              aria-hidden="true"
+              focusable="false"
+              width="19"
+              height="20"
+            >
+              <use href="/js_120_Diamond-FoxUA/assets/icons-m-iaAyZR.svg#icon-contact"></use>
+            </svg>
+            <div class="contact-item-inner">
+              <p class="contact-label">Phone:</p>
+              <a href="tel:+612413043012" class="contact-link"
+                >+380 12 345 6789</a
+              >
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <svg
+              class="icon"
+              aria-hidden="true"
+              focusable="false"
+              width="16"
+              height="21"
+            >
+              <use href="/js_120_Diamond-FoxUA/assets/icons-m-iaAyZR.svg#icon-local"></use>
+            </svg>
+            <div class="contact-item-inner">
+              <p class="contact-label">Office:</p>
+              <p class="contact-text">123 Books St, Sydney NSW 2000 AU</p>
+            </div>
+          </li>
+        </ul>
+      </address>
+    </div>
+
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1549591.822431928!2d151.707179!3d-32.917679!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b73155e3e7420dd%3A0x8a563884360e3fd0!2s123%20Books!5e1!3m2!1sen!2sua!4v1760388826788!5m2!1sen!2sua" width="343" height="395" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+    </main>
+
+    <footer class="footer">
+  <div class="container">
+    <div class="content">
+      <div class="footer-nav">
+        <a href="./index.html" class="logo footer-logo">
+          <svg class="logo-icon" width="83" height="21">
+            <use href="/js_120_Diamond-FoxUA/assets/icons-m-iaAyZR.svg#icon-book"></use>
+          </svg>
+        </a>
+
+        <ul class="footer-menu">
+          <li class="footer-nav-link">
+            <a href="./index.html">Home</a>
+          </li>
+          <li class="footer-nav-link">
+            <a href="#books" class="footer-nav-link">Books</a>
+          </li>
+          <li class="footer-nav-link">
+            <a href="#feedbacks" class="footer-nav-link">Feedback</a>
+          </li>
+          <li class="footer-nav-link">
+            <a href="#location" class="footer-nav-link">Location</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="join-form">
+        <p class="join-title">Join</p>
+        <div class="form">
+          <input
+            type="email"
+            class="join-input"
+            placeholder="Enter your email"
+            required
+            pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+            title="Приклад: name@domain.com (допускається одна крапка в імені та TLD з 2–3 літер)."
+            autocomplete="email"
+            inputmode="email"
+          />
+          <button type="submit" class="join-btn">Sign Up</button>
+        </div>
+        <p class="required">* Required field</p>
+      </div>
+    </div>
+    <div class="credits">
+      <p class="text-muted">© 2025 Booksy. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+    <div id="books-modal-backdrop" class="backdrop"></div>
+    <div class="book-modal-backdrop js-book-modal-backdrop">
+  <div class="book-modal js-book-modal">
+    <button type="button" class="book-modal-close-btn js-book-modal-close-btn">
+      <svg class="book-modal-close-icon" width="32" height="32">
+        <use href="/js_120_Diamond-FoxUA/assets/icons-m-iaAyZR.svg#icon-x"></use>
+      </svg>
+    </button>
+    <div class="book-modal-content js-book-modal-content"></div>
+  </div>
+</div>
+
+
+  </body>
+</html>
