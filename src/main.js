@@ -6,3 +6,4 @@ import './js/header.js';
 import './js/footer.js';
 import './js/modal.js';
 import './js/book-modal.js';
+import './js/scroll-up.js';

@@ -1,0 +1,65 @@
+.scroll-up {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 50px;
+  height: 55px;
+  background-color: var(--color-orange-btn);
+
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  border: none;
+}
+
+.scroll-up.show {
+  opacity: 1;
+  visibility: visible;
+}
+.scroll-up:hover {
+  transform: scale(1.1);
+}
+
+.scroll-up:focus {
+  outline: none;
+}
+
+.scroll-up.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-up:hover .svg {
+  fill: #eea907;
+}
+
+.scroll-up .svg {
+  fill: #fffcfc;
+  transition: fill 0.3s ease;
+  transform: rotate(-90deg);
+  animation: arrowPulse 1.5s infinite ease-in-out;
+}
+
+/* ============ animation ============= */
+@keyframes arrowPulse {
+  0%,
+  100% {
+    transform: rotate(-90deg) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: rotate(-90deg) scale(1.2);
+    opacity: 1;
+  }
+}
